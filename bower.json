@@ -1,0 +1,17 @@
+{
+  "name": "movieData",
+  "description": "A starter project for Interaction Programming course Lab5",
+  "version": "0.0.0",
+  "homepage": "https://github.com/gusnik/superProjekt",
+  "license": "GNU",
+  "private": true,
+  "dependencies": {
+    "angular": "1.3.x",
+    "angular-mocks": "1.3.x",
+    "jquery": "~2.1.1",
+    "bootstrap": "~3.1.1",
+    "angular-route": "1.3.x",
+    "angular-resource": "1.3.x",
+    "angular-animate": "1.3.x"
+  }
+}
