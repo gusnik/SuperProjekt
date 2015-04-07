@@ -8,7 +8,7 @@ movieDataApp.config(['$routeProvider',
         templateUrl: 'partials/start-page.html'
       }).
       when('/search', {
-        templateUrl: 'partials/search.html',
+        templateUrl: 'partials/search-page.html',
         controller: 'SearchCtrl'
       }).
       when('/dish/:dishId', {
