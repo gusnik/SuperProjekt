@@ -1,14 +1,14 @@
 
-var movieDataApp = angular.module('movieData', ['ngRoute','ngResource', 'ngCookies']);
+var movieDataApp = angular.module('movieData', ['ngRoute','ngResource']);
 
-dinnerPlannerApp.config(['$routeProvider',
+movieDataApp.config(['$routeProvider',
   function($routeProvider) {
     $routeProvider.
       when('/home', {
-        templateUrl: 'partials/home.html'
+        templateUrl: 'partials/start-page.html'
       }).
       when('/search', {
-        templateUrl: 'partials/search.html',
+        templateUrl: 'partials/search-page.html',
         controller: 'SearchCtrl'
       }).
       when('/dish/:dishId', {
