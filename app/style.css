@@ -50,6 +50,7 @@ padding:9px 24px 0 24px;
 box-sizing:border-box;
 font-size:10px;
 letter-spacing:1px;
+position:relative;
 }
 
 .menuObjectFloatRight {
@@ -59,7 +60,7 @@ float:right;
 #contentHolder {
 width:100%;
 height:400px;
-background-color:orange;
+background-color:#eaeaea;
 position:relative;
 }
 
@@ -76,7 +77,6 @@ overflow:hidden;
 .contentImage {
 width:100%;
 height:410px;
-background-image:url(img/fashionly.png);
 background-size:cover;
 background-position:center;
 position:absolute;
@@ -116,4 +116,27 @@ width:90%;
 height:50px;
 background-color:transparent;
 margin:0 auto 0 auto;
+}
+
+.menuObjectImage {
+width:10px;
+height:10px;
+background-size:cover;
+position:absolute;
+left:8px;
+top:11px;
+opacity:.3;
+}
+
+.search {
+background-image:url(img/search.png);
+}
+
+.discovery {
+background-image:url(img/discover.png);
+}
+
+.sel {
+background-color:rgba(239, 213, 87, 1);
+color:#fff;
 }
