@@ -1,8 +1,9 @@
 
-movieDataApp.factory('Movie',function ($resource, $cookieStore) {
-
+movieDataApp.factory('Movie',function ($resource) {
 
 
   return this;
 
 });
+
+

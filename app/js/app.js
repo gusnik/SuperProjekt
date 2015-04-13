@@ -5,7 +5,9 @@ movieDataApp.config(['$routeProvider',
   function($routeProvider) {
     $routeProvider.
       when('/home', {
-        templateUrl: 'partials/start-page.html'
+        templateUrl: 'partials/start-page.html',
+        controller: 'StartCtrl'
+
       }).
       when('/search', {
         templateUrl: 'partials/search-page.html',
