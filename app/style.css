@@ -1,0 +1,28 @@
+@charset "UTF-8";
+
+@import url(http://fonts.googleapis.com/css?family=Lato:300,400);
+
+body {
+margin:0px;
+padding:0px;
+border:0px;
+background-color:red;
+}
+
+::-webkit-input-placeholder {
+color: rgba(255,255,255,.2);
+font-family:Lato;
+font-weight:300;
+text-transform:uppercase;
+}
+
+a {
+text-decoration:none;
+color:#fff;
+}
+
+#header {
+width:100%;
+height:50px;
+background-color:Red;
+}
