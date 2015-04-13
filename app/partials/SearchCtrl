@@ -1,0 +1,11 @@
+
+movieDataApp.controller('SearchCtrl', function ($scope,Movie,$http) {
+
+$scope.test = function(){
+	alert("Hej");
+}
+
+
+
+});
+
