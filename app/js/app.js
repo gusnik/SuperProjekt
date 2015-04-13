@@ -11,8 +11,8 @@ movieDataApp.config(['$routeProvider',
         templateUrl: 'partials/search-page.html',
         controller: 'SearchCtrl'
       }).
-      when('/dish/:dishId', {
-        templateUrl: 'partials/movie.html',
+      when('/movie/:movieID', {
+        templateUrl: 'partials/movie-page.html',
         controller: 'MovieCtrl'
       }).
       when('/checkout', {

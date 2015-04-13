@@ -4,17 +4,17 @@
 <input type="submit" ng-click="getSearchResults()" value="search" id="selectKeyWordsSubmit"/>
 
 </div>
-<!-- <div id ="searchResults" ng-repeat = "list in getList()">
-	<div id = "movieResults" ng-repeat ="movie in list">
-		{{ movie.title }}
 </div>
-</div>
- -->
+
 
  <div id ="searchResults" ng-repeat = "movie in movies">
- 	
+ 	<a href="#/movie/{{movie.id}}">
+ 		<div id = "movie">
  			<img src ="https://image.tmdb.org/t/p/w300{{ movie.poster_path }}"/>
- 			<a> {{ movie.title }} </a>
+ 			{{ movie.title }} 
+ 		</div>
+ 	</a>
+
 
 </div>
 
