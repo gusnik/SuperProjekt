@@ -48,5 +48,9 @@ $scope.getVideos = function(videoId) {
     });
 }
 
+$scope.openSearch = function() {
+$("#searchForm").animate({width: "200px"});
+$("#searchForm").animate({margin: "10px 24px 0 0"});
+}
  
 });
