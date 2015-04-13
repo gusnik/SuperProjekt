@@ -2,7 +2,6 @@
 movieDataApp.factory('Movie',function ($resource) {
 var objectList = [];
 
-
 this.getMovieByStr = function(userinput) {
 objectList = [];
 var url = 'https://api.themoviedb.org/3/search/movie?query=';
@@ -24,10 +23,10 @@ var url = 'https://api.themoviedb.org/3/search/movie?query=';
                 console.log(e.message);
             }
     });
+
 }
 
 this.getObjectlist = function() {
-	console.log(objectList);
 	return objectList;
 }
 
