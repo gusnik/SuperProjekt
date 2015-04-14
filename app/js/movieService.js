@@ -21,18 +21,13 @@ this.getUserRating = function(inputID) {
         for (i in userRatingList) {
          if (inputID === userRatingList[i].ID) {
             return userRatingList[i].Rating;
-            alert(userRatingList[i].Rating);
         } else {
             return '';
-            alert("Tjaaaa");
         }
-
-
     }
 }
 else{
     return '';
-    alert("venus");
 }
 }
 
