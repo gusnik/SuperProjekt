@@ -11,8 +11,9 @@
 		<div id ="imdbRating"> {{ currentMovie.vote_average }} </div>
 		<div id ="userRating">
 		<select name ="userRating" ng-model = "userRating" ng-click="setUserRating()">
-			<option ng-repeat="num in ratingValues" value = "{{ num }}"> {{ num }} </option>
+			<option ng-repeat="num in ratingValues" value = "{{ num }}"> {{ num }} </option> 
 		</select>
+		<div id ="currentRating">Du har för närvarande satt: {{ userRating }} </div>
 
 		</div> 
 	</div>

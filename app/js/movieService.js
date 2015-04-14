@@ -15,6 +15,17 @@ this.updateUserRating = function(inputID, inputRating){
     console.log(userRatingList);
 }
 
+this.getUserRating = function(inputID) {
+    for (i in userRatingList) {
+        if (inputID === userRatingList[i].ID) {
+            return userRatingList[i].Rating;
+        } else {
+            return ''
+        }
+
+    }
+}
+
 
 
 this.getMovieByStr = function(userinput) {
