@@ -3,8 +3,6 @@ movieDataApp.controller('MovieCtrl', function ($scope,$routeParams,Movie) {
 
 $scope.ratingValues = [1, 2, 3, 4, 5];
 
-$scope.userRating = '';
-
 $scope.currentMovie = '';
 
 $scope.getResults = function() {
@@ -14,8 +12,6 @@ $scope.getResults = function() {
 
 $scope.startPartial = function() {
     $scope.getMovieByID();
-    $scope.userRating = Movie.getUserRating($scope.currentMovie.id);
-    $scope.getResults();
 }
 
 $scope.getMovieByID = function() {
@@ -34,7 +30,8 @@ var url = 'https://api.themoviedb.org/3/movie/';
                 console.dir(json);
                 console.log("Hej");
                 $scope.currentMovie = json;
-                console.log($scope.currentMovie);
+                $scope.userRating = Movie.getUserRating($scope.currentMovie.id);
+                console.log("$scope.userRating");
                 $scope.getResults();
 
             },

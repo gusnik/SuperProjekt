@@ -12,11 +12,11 @@ this.updateUserRating = function(inputID, inputRating){
       }
     }
     userRatingList.push(inputTuple);
+    console.log("HEJ");
     console.log(userRatingList);
 }
 
 this.getUserRating = function(inputID) {
-    alert(userRatingList.length);
     if (userRatingList.length > 0){
         for (i in userRatingList) {
          if (inputID === userRatingList[i].ID) {
