@@ -1,15 +1,19 @@
 
 movieDataApp.controller('MovieCtrl', function ($scope,$routeParams,Movie) {
-var currentMovie = $routeParams.movieID;
+
+$scope.ratingValues = ['', 1, 2, 3, 4, 5];
+
+$scope.userRating = '';
 
 $scope.getResults = function() {
 	 $scope.$apply();
 }
 
-$scope.getSearchResults = function() {
-var currentMovie = $routeParams.movieID;
+$scope.getMovieByID = function() {
+$scope.currentMovie = '';
+var currentMovieID = $routeParams.movieID;
 var url = 'https://api.themoviedb.org/3/movie/';
-		userInp = currentMovie;
+		userInp = currentMovieID;
         key = '?api_key=33e53562fbe46873e9379ecef2545dbc';
         $.ajax({
             type: 'GET',
@@ -21,7 +25,7 @@ var url = 'https://api.themoviedb.org/3/movie/';
             success: function(json) {
                 console.dir(json);
                 console.log("Hej");
-                $scope.currentMovie = json.results;
+                $scope.currentMovie = json;
                 console.log($scope.currentMovie);
                 $scope.getResults();
 
@@ -33,7 +37,21 @@ var url = 'https://api.themoviedb.org/3/movie/';
 
 }
 
-$scope.getSearchResults();
+$scope.getMovieByID();
+
+
+$scope.changeUserRating = function(){
+
+
+}
+
+$scope.test = function() {
+
+    console.log($scope.userRating);
+}
+
+
+
 
 
 });
