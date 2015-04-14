@@ -3,7 +3,7 @@ movieDataApp.controller('MovieCtrl', function ($scope,$routeParams,Movie) {
 
 $scope.ratingValues = [1, 2, 3, 4, 5];
 
-//$scope.userRating = '3';
+$scope.userRating = '';
 
 $scope.currentMovie = '';
 
@@ -15,6 +15,7 @@ $scope.getResults = function() {
 $scope.startPartial = function() {
     $scope.getMovieByID();
     $scope.userRating = Movie.getUserRating($scope.currentMovie.id);
+    $scope.getResults();
 }
 
 $scope.getMovieByID = function() {
@@ -48,11 +49,13 @@ $scope.startPartial();
 
 
 $scope.setUserRating = function(){
-    console.log($scope.userRating);
     Movie.updateUserRating($scope.currentMovie.id, $scope.userRating);
  
 }
 
+$scope.test = function(){
+    console.log($scope.userRating);
+}
 
 
 

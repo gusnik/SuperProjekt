@@ -16,14 +16,24 @@ this.updateUserRating = function(inputID, inputRating){
 }
 
 this.getUserRating = function(inputID) {
-    for (i in userRatingList) {
-        if (inputID === userRatingList[i].ID) {
+    alert(userRatingList.length);
+    if (userRatingList.length > 0){
+        for (i in userRatingList) {
+         if (inputID === userRatingList[i].ID) {
             return userRatingList[i].Rating;
+            alert(userRatingList[i].Rating);
         } else {
-            return ''
+            return '';
+            alert("Tjaaaa");
         }
 
+
     }
+}
+else{
+    return '';
+    alert("venus");
+}
 }
 
 
