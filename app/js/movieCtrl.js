@@ -54,8 +54,8 @@ $scope.test = function(){
     console.log($scope.userRating);
 }
 
-$scope.$watch((userRating), function(newvalue, oldvalue){
-    console.log(userRating);
+$scope.$watch('userRating', function(newvalue, oldvalue){
+    $scope.setUserRating();
 
 })
 
