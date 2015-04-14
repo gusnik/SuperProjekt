@@ -1,35 +1,45 @@
 
 movieDataApp.controller('SearchCtrl', function ($scope,Movie,$http) {
 
-$scope.movieResponse = [];
+$scope.getList = function() {
+	return Movie.getObjectlist();
+	$scope.movieList = Movie.getObjectlist();
 
-$scope.getMovieList = function (input) {
-	alert(input);
-var userinput = input;
-var url ="http://api.rottentomatoes.com/api/public/v1.0/movies.json?apikey=[53ere629vhrsm9smf2xzgbgr]&q=";
-var limit = "$page_limit=1";
-var url2 = url + userinput + limit;
-alert (url2);
+}
+$scope.getResults = function() {
+	 $scope.$apply();
 
-$http({method: 'GET', url: url}).
-  success(function (data, status, config) {
 
-    if (status == 200) {
-      page = data.page;                                             // saving current page for pagination
-      $scope.movieResponse.push.apply($scope.movieResponse, data.results)   // appending new movies to current list
-    } else {
-      console.error('Error happened while getting the movie list.')
-    }
-
-  }).
-  error(function (data, status, headers, config) {
-    console.error('Error happened while getting the movie list.')
-  });
 }
 
 
+$scope.getSearchResults = function() {
+var valu = $("#selectKeyWords").val();
+var url = 'https://api.themoviedb.org/3/search/movie?query=';
+		userInp = valu;
+        key = '&api_key=33e53562fbe46873e9379ecef2545dbc';
+        $.ajax({
+            type: 'GET',
+            url: url + userInp + key,
+            async: false,
+            jsonpCallback: 'testing',
+            contentType: 'application/json',
+            dataType: 'jsonp',
+            success: function(json) {
+                console.dir(json);
+                $scope.movies = json.results;
+                console.log($scope.movies);
+                $scope.getResults();
 
 
+
+            },
+            error: function(e) {
+                console.log(e.message);
+            }
+    });
+
+}
 
 
 

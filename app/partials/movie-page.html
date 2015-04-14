@@ -1,3 +1,26 @@
-<div> 
-	<a> HEJ </a>
+<div id = "entireMovie">
+
+	<div id = "movieTitle"><p> {{ currentMovie.title }} </p> </div> 
+
+	<div id  = "moviePoster"> <img src ="https://image.tmdb.org/t/p/w300{{ currentMovie.poster_path }}"/> </div>
+	<div id = "movieDesc"> <p> {{ currentMovie.overview }} </div>
+
+	<div id = "releaseDate">Filmen släpptes: {{ currentMovie.release_date | date : "MMMM yyyy" }} </div>
+
+	<div id = "movieRating"> 	
+		<div id ="imdbRating"> {{ currentMovie.vote_average }} </div>
+		<div id ="userRating">
+		<select name ="userRating" ng-model = "userRating" ng-click="setUserRating()">
+			<option ng-repeat="num in ratingValues" value = "{{ num }}"> {{ num }} </option> 
+		</select>
+		<div id ="currentRating">Du har för närvarande satt: {{ userRating }} </div>
+
+		</div> 
+	</div>
 </div>
+
+
+<p ng-click="test()"> HEJ KLICKA MEJJ </p>
+
+
+<a href="#/search"> Lekedi lek </a>
