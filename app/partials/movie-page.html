@@ -8,12 +8,13 @@
 	<div id = "releaseDate">Filmen släpptes: {{ currentMovie.release_date | date : "MMMM yyyy" }} </div>
 
 	<div id = "movieRating"> 	
-		<div id ="imdbRating"> {{ currentMovie.vote_average }} </div> <div id ="userRating">
-		<select name ="userRating" ng-model = "userRating" >
+		<div id ="imdbRating"> {{ currentMovie.vote_average }} </div>
+		<div id ="userRating">
+		<select name ="userRating" ng-model = "userRating" ng-click="setUserRating()">
 			<option ng-repeat="num in ratingValues" value = "{{ num }}"> {{ num }} </option>
 		</select>
+
 		</div> 
 	</div>
 </div>
 
-<a ng-click ="test()"> Klicka mig </a>

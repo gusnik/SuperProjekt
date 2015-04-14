@@ -1,16 +1,21 @@
 
 movieDataApp.controller('MovieCtrl', function ($scope,$routeParams,Movie) {
 
-$scope.ratingValues = ['', 1, 2, 3, 4, 5];
+$scope.ratingValues = [1, 2, 3, 4, 5];
 
 $scope.userRating = '';
+
+$scope.currentMovie = '';
 
 $scope.getResults = function() {
 	 $scope.$apply();
 }
+$scope.getUserRating = function() {
+    return $scope.userRating;
+
+}
 
 $scope.getMovieByID = function() {
-$scope.currentMovie = '';
 var currentMovieID = $routeParams.movieID;
 var url = 'https://api.themoviedb.org/3/movie/';
 		userInp = currentMovieID;
@@ -40,15 +45,12 @@ var url = 'https://api.themoviedb.org/3/movie/';
 $scope.getMovieByID();
 
 
-$scope.changeUserRating = function(){
-
-
-}
-
-$scope.test = function() {
-
+$scope.setUserRating = function(){
     console.log($scope.userRating);
+    Movie.updateUserRating($scope.currentMovie.id, $scope.userRating);
+ 
 }
+
 
 
 

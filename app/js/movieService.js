@@ -1,6 +1,21 @@
 
 movieDataApp.factory('Movie',function ($resource) {
 var objectList = [];
+var userRatingList = [];
+
+this.updateUserRating = function(inputID, inputRating){
+    inputTuple = {"ID": inputID, "Rating":inputRating};
+    for (i in userRatingList) {
+      if (inputID === userRatingList[i].ID) {
+        var index = userRatingList.indexOf(userRatingList[i]);
+        userRatingList.splice(index, 1);
+      }
+    }
+    userRatingList.push(inputTuple);
+    console.log(userRatingList);
+}
+
+
 
 this.getMovieByStr = function(userinput) {
 objectList = [];
