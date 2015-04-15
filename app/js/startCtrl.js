@@ -1,11 +1,17 @@
-movieDataApp.controller('StartCtrl', function ($scope,Movie) {
+movieDataApp.controller('StartCtrl', function ($scope,Movie,$sce) {
+	
+$scope.setProject = function (key) {
+	var id = "https://www.youtube.com/embed/"+ key + "?autoplay=0&controls=0&showinfo=0";
+	//$scope.currentProject = $scope.projects[id];
+	$scope.currentProjectUrl = $sce.trustAsResourceUrl(id);
+}
 
 $scope.updatePop = function() {
 	 $scope.$apply();
 }
 
 angular.element(document).ready(function () {
-	var url = 'https://api.themoviedb.org/3/discover/movie?sort_by=popularity.desc&append_to_response=trailers';
+	var url = 'https://api.themoviedb.org/3/discover/movie?sort_by=popularity.desc';
 	//var url = 'https://api.themoviedb.org/3/movie/157336/videos';
         key = '&api_key=33e53562fbe46873e9379ecef2545dbc';
         $.ajax({
@@ -17,15 +23,10 @@ angular.element(document).ready(function () {
             contentType: 'application/json',
             dataType: 'jsonp',
             success: function(json) {
-				console.log(json);
-				imageLink = "https://image.tmdb.org/t/p/w1920" + json.results[0].backdrop_path;
+				var number = 1;
+				imageLink = "https://image.tmdb.org/t/p/w1920" + json.results[number].backdrop_path;
 				$(".contentImage").css("background-image","url(" + imageLink + ")");
-				
-				$scope.getVideos(json.results[0].id);
-				$scope.popInfo = json.results[0];
-				console.log("hej");
-                console.log($scope.popInfo);
-                $scope.updatePop();
+				$scope.getMovieByID(json.results[number].id);
 				
             },
             error: function(e) {
@@ -47,7 +48,7 @@ $scope.getVideos = function(videoId) {
             dataType: 'jsonp',
             success: function(json) {
 				console.log(json);
-				$scope.videoInfo = json.results[0];
+				$scope.setProject(json.results[0].key);
 				$scope.updatePop();
 			},
             error: function(e) {
@@ -55,6 +56,28 @@ $scope.getVideos = function(videoId) {
                 console.log(e.message);
             }
     });
+}
+
+$scope.getMovieByID = function(userInp) {
+var url = 'https://api.themoviedb.org/3/movie/';
+        key = '?api_key=33e53562fbe46873e9379ecef2545dbc';
+        $.ajax({
+            type: 'GET',
+            url: url + userInp + key,
+            async: false,
+            jsonpCallback: 'testing',
+            contentType: 'application/json',
+            dataType: 'jsonp',
+            success: function(json) {
+                $scope.popInfo = json;
+				$scope.getVideos(json.id);
+
+            },
+            error: function(e) {
+                console.log(e.message);
+            }
+    });
+
 }
 
 $scope.openSearch = function() {
