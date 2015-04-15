@@ -6,7 +6,7 @@ var userRatingList = [];
 
 this.updateUserRating = function(inputID, inputRating){
     inputTuple = {"ID": inputID, "Rating":inputRating};
-    if (inputRating % 1 ===  0){
+    if (inputRating !==  ''){
     for (i in userRatingList) {
       if (inputID === userRatingList[i].ID) {
         var index = userRatingList.indexOf(userRatingList[i]);
@@ -16,6 +16,9 @@ this.updateUserRating = function(inputID, inputRating){
     userRatingList.push(inputTuple);
     console.log("HEJ");
     console.log(userRatingList);
+}
+else {
+    
 }
 }
 

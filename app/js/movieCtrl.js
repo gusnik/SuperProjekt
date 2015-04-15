@@ -31,7 +31,7 @@ var url = 'https://api.themoviedb.org/3/movie/';
                 console.log("Hej");
                 $scope.currentMovie = json;
                 $scope.userRating = Movie.getUserRating($scope.currentMovie.id);
-                console.log("$scope.userRating");
+                console.log($scope.userRating);
                 $scope.getResults();
 
             },
@@ -41,9 +41,6 @@ var url = 'https://api.themoviedb.org/3/movie/';
     });
 
 }
-
-$scope.startPartial();
-
 
 $scope.setUserRating = function(){
     Movie.updateUserRating($scope.currentMovie.id, $scope.userRating);
@@ -58,6 +55,9 @@ $scope.$watch('userRating', function(newvalue, oldvalue){
     $scope.setUserRating();
 
 })
+
+
+$scope.startPartial();
 
 
 
