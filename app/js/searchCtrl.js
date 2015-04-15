@@ -1,4 +1,3 @@
-
 movieDataApp.controller('SearchCtrl', function ($scope,Movie) {
 
 // $scope.getSearchResults = function(){
@@ -47,8 +46,6 @@ var url = 'https://api.themoviedb.org/3/search/movie?query=';
     });
 
 }
-
-
 
 
 

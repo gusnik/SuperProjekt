@@ -1,0 +1,119 @@
+@charset "UTF-8";
+
+@import url(http://fonts.googleapis.com/css?family=Lato:300,400,900);
+
+body {
+margin:0px;
+padding:0px;
+border:0px;
+background-color:#fff;
+}
+
+::-webkit-input-placeholder {
+color: rgba(255,255,255,.2);
+font-family:Lato;
+font-weight:300;
+text-transform:uppercase;
+}
+
+a {
+text-decoration:none;
+color:#000;
+}
+
+#header {
+width:100%;
+height:50px;
+background-color:#fff;
+}
+
+#logo {
+width:75px;
+height:50px;
+background-color:transparent;
+margin-right:30px;
+float:left;
+background-image:url(img/logo3.png);
+background-size:contain;
+}
+
+.menuObject {
+width:auto;
+height:30px;
+background-color:transparent;
+float:left;
+margin:10px 10px 0 0;
+font-family: Lato;
+font-weight:900;
+text-align:center;
+padding:9px 24px 0 24px;
+box-sizing:border-box;
+font-size:10px;
+letter-spacing:1px;
+}
+
+.menuObjectFloatRight {
+float:right;
+}
+
+#contentHolder {
+width:100%;
+height:400px;
+background-color:orange;
+position:relative;
+}
+
+#contentMenu {
+width:100%;
+height:50px;
+background-color:rgba(0,0,0,0);
+position:absolute;
+left:0px;
+bottom:0px;
+overflow:hidden;
+}
+
+.contentImage {
+width:100%;
+height:410px;
+background-image:url(img/fashionly.png);
+background-size:cover;
+background-position:center;
+position:absolute;
+left:0px;
+top:0px;
+}
+
+.contentImageBlur {
+-webkit-filter: blur(10px);
+margin:-340px 0 0 0;
+position:absolute;
+left:0px;
+top:-10px;
+}
+
+#whiteStrip {
+width:100%;
+height:10px;
+background-color:#fff;
+position:absolute;
+left:0px;
+bottom:-10px;
+}
+
+#contentMenuInfo {
+width:100%;
+height:50px;
+background-color:rgba(0,0,0,.02);
+position:absolute;
+left:0px;
+bottom:0px;
+}
+
+.menuInfoHolder {
+max-width:1000px;
+width:90%;
+height:50px;
+background-color:transparent;
+margin:0 auto 0 auto;
+}

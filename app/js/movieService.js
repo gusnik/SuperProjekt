@@ -1,5 +1,6 @@
 
 movieDataApp.factory('Movie',function ($resource) {
+<<<<<<< HEAD
 var objectList = [];
 var userRatingList = [];
 
@@ -60,6 +61,8 @@ var url = 'https://api.themoviedb.org/3/search/movie?query=';
 this.getObjectlist = function() {
 	return objectList;
 }
+=======
+>>>>>>> origin/newMaster
 
 
 
