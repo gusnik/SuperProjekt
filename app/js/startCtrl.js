@@ -1,7 +1,7 @@
 movieDataApp.controller('StartCtrl', function ($scope,Movie,$sce) {
 	
-$scope.setProject = function (key) {
-	var id = "https://www.youtube.com/embed/"+ key + "?autoplay=0&controls=0&showinfo=0";
+$scope.setProject = function () {
+	var id = "https://www.youtube.com/embed/"+ $scope.movieID + "?autoplay=1&controls=0&showinfo=0";
 	//$scope.currentProject = $scope.projects[id];
 	$scope.currentProjectUrl = $sce.trustAsResourceUrl(id);
 }
@@ -23,7 +23,7 @@ angular.element(document).ready(function () {
             contentType: 'application/json',
             dataType: 'jsonp',
             success: function(json) {
-				var number = 1;
+				var number = 2;
 				imageLink = "https://image.tmdb.org/t/p/w1920" + json.results[number].backdrop_path;
 				$(".contentImage").css("background-image","url(" + imageLink + ")");
 				$scope.getMovieByID(json.results[number].id);
@@ -48,7 +48,7 @@ $scope.getVideos = function(videoId) {
             dataType: 'jsonp',
             success: function(json) {
 				console.log(json);
-				$scope.setProject(json.results[0].key);
+				$scope.movieID = json.results[0].key;
 				$scope.updatePop();
 			},
             error: function(e) {
@@ -83,6 +83,12 @@ var url = 'https://api.themoviedb.org/3/movie/';
 $scope.openSearch = function() {
 $("#searchForm").animate({width: "200px"});
 $("#searchForm").animate({margin: "10px 24px 0 0"});
+}
+
+$scope.openMovie = function() {
+//$("#youtubeHolder").animate({opacity: "1"});
+$(".youtubeHolder").addClass("youtubeHolder showYoutube");
+$scope.setProject();
 }
  
 });

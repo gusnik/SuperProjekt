@@ -30,16 +30,21 @@
     </div>
     <div id="contentMenuInfo">
     	<div class="menuInfoHolder">
+        	<div id="moviePlay" ng-click="openMovie()"></div>
         </div>
     </div>
     <div id="menuInformation">
    		<div id="menuInformationTitle">{{ popInfo.title }}</div>
         <div id="menuInformationTagline">{{ popInfo.tagline }}</div>
         <div id="menuInformationRating"><div id="calcLength" ng-style="{'width': popInfo.vote_average}"></div></div>
-        <div id="menuInformationRatingTitle">Rating: {{popInfo.vote_average}}/10</div>
+        <!--<div id="menuInformationRatingTitle">Rating: {{popInfo.vote_average}}/10</div>-->
+    </div>
+    <div class="youtubeHolder">
+    	<div id="youtubeInner">
+        	<iframe id="ytplayer" type="text/html" width="100%" height="100%" ng-src="{{currentProjectUrl}}" frameborder="0"/>
+        </div>
     </div>
     <div id="whiteStrip"></div>
 </div>
 <div id="topChoices">
-<iframe id="ytplayer" type="text/html" width="100%" height="350px" ng-src="{{currentProjectUrl}}" frameborder="0"/>
 </div>
