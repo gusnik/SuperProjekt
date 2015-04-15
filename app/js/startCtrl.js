@@ -1,7 +1,7 @@
 movieDataApp.controller('StartCtrl', function ($scope,Movie,$sce) {
 	
 $scope.setProject = function () {
-	var id = "https://www.youtube.com/embed/"+ $scope.movieID + "?autoplay=1&controls=0&showinfo=0";
+	var id = "https://www.youtube.com/embed/"+ $scope.movieID + "?autoplay=1&controls=0&showinfo=0&rel=0";
 	//$scope.currentProject = $scope.projects[id];
 	$scope.currentProjectUrl = $sce.trustAsResourceUrl(id);
 }
@@ -23,7 +23,7 @@ angular.element(document).ready(function () {
             contentType: 'application/json',
             dataType: 'jsonp',
             success: function(json) {
-				var number = 1;
+				var number = 2;
 				imageLink = "https://image.tmdb.org/t/p/w1920" + json.results[number].backdrop_path;
 				$(".contentImage").css("background-image","url(" + imageLink + ")");
 				$scope.getMovieByID(json.results[number].id);
@@ -79,10 +79,16 @@ var url = 'https://api.themoviedb.org/3/movie/';
     });
 
 }
-
+var openSearchVar = 0;
 $scope.openSearch = function() {
-$("#searchForm").animate({width: "200px"});
-$("#searchForm").animate({margin: "10px 24px 0 0"});
+	if(openSearchVar%2==0) {
+		$(".searchHolder").addClass("searchHolder searchHolderOpen");
+		document.getElementById("searchForm").focus();
+	} else {
+		$(".searchHolder").removeClass("searchHolderOpen");
+
+	}
+	openSearchVar++;
 }
 
 $scope.openMovie = function() {
