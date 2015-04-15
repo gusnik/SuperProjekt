@@ -1,5 +1,9 @@
 movieDataApp.controller('StartCtrl', function ($scope,Movie) {
 
+$scope.updatePop = function() {
+	 $scope.$apply();
+}
+
 angular.element(document).ready(function () {
 	var url = 'https://api.themoviedb.org/3/discover/movie?sort_by=popularity.desc&append_to_response=trailers';
 	//var url = 'https://api.themoviedb.org/3/movie/157336/videos';
@@ -14,11 +18,14 @@ angular.element(document).ready(function () {
             dataType: 'jsonp',
             success: function(json) {
 				console.log(json);
-                //console.dir(json.results[0]);
-				//Movie.updatePopMovie(json.results[0])
 				imageLink = "https://image.tmdb.org/t/p/w1920" + json.results[0].backdrop_path;
 				$(".contentImage").css("background-image","url(" + imageLink + ")");
+				
 				$scope.getVideos(json.results[0].id);
+				$scope.popInfo = json.results[0];
+				console.log("hej");
+                console.log($scope.popInfo);
+                $scope.updatePop();
 				
             },
             error: function(e) {
@@ -40,6 +47,8 @@ $scope.getVideos = function(videoId) {
             dataType: 'jsonp',
             success: function(json) {
 				console.log(json);
+				$scope.videoInfo = json.results[0];
+				$scope.updatePop();
 			},
             error: function(e) {
 				alert("RÖV");
