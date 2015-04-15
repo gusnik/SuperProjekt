@@ -23,7 +23,7 @@ angular.element(document).ready(function () {
             contentType: 'application/json',
             dataType: 'jsonp',
             success: function(json) {
-				var number = 2;
+				var number = 1;
 				imageLink = "https://image.tmdb.org/t/p/w1920" + json.results[number].backdrop_path;
 				$(".contentImage").css("background-image","url(" + imageLink + ")");
 				$scope.getMovieByID(json.results[number].id);
@@ -88,6 +88,11 @@ $("#searchForm").animate({margin: "10px 24px 0 0"});
 $scope.openMovie = function() {
 //$("#youtubeHolder").animate({opacity: "1"});
 $(".youtubeHolder").addClass("youtubeHolder showYoutube");
+$(".moviePlayButton").addClass("moviePlayButton moviePlayButtonRotate");
+$(".playLineOne").addClass("playLineOne playLineOnePause");
+$(".playLineTwo").addClass("playLineTwo playLineTwoPause");
+$(".playLineThree").addClass("playLineThree playLineThreePause");
+$(".playArrow").addClass("playArrow playArrowPause");
 $scope.setProject();
 }
  

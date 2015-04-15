@@ -124,8 +124,78 @@ margin:0 auto 0 auto;
 #moviePlay {
 width:100px;
 height:30px;
-background-color:red;
+background-color:transparent;
 margin:10px auto 0 auto;
+cursor:pointer;
+}
+
+.moviePlayButton {
+width:30px;
+height:30px;
+background-color:transparent;
+margin:0 0 0 35px;
+position:relative;
+transition:.5s;
+}
+
+.playArrow {
+width: 0; 
+height: 0; 
+border-top: 6px solid transparent;
+border-bottom: 6px solid transparent;
+border-left: 9px solid #fff;
+position:absolute;
+left:10px;
+top:10px;
+opacity:1;
+}
+
+.playArrowPause {
+opacity:0;
+}
+
+.moviePlayButtonRotate {
+margin:0 0 0 33px;
+-webkit-transform:rotate(270deg);
+}
+
+.playLineBase {
+width:2px;
+height:12px;
+position:absolute;
+left:10px;
+top:10px;
+background-color:#fff;
+transition:.5s;
+}
+
+.playLineOne {
+-webkit-transform:rotate(55deg);
+left:14px;
+top:13px;
+}
+
+.playLineOnePause {
+-webkit-transform:rotate(90deg);
+}
+
+.playLineTwo {
+-webkit-transform:rotate(-55deg);
+left:14px;
+top:7px;
+}
+
+.playLineTwoPause {
+-webkit-transform:rotate(-90deg);
+}
+
+.playLineThree {
+height:12px;
+opacity:1;
+}
+
+.playLineThreePause{
+opacity:0;
 }
 
 .menuObjectImage {
