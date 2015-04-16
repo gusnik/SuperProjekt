@@ -70,6 +70,7 @@ var url = 'https://api.themoviedb.org/3/movie/';
             dataType: 'jsonp',
             success: function(json) {
                 $scope.popInfo = json;
+				$scope.datWidth = json.vote_average*10 + "%";
 				$scope.getVideos(json.id);
 
             },
@@ -91,7 +92,9 @@ $scope.openSearch = function() {
 	openSearchVar++;
 }
 
+var openMovie = 0;
 $scope.openMovie = function() {
+if(openMovie%2==0) {
 //$("#youtubeHolder").animate({opacity: "1"});
 $(".youtubeHolder").addClass("youtubeHolder showYoutube");
 $(".moviePlayButton").addClass("moviePlayButton moviePlayButtonRotate");
@@ -100,6 +103,10 @@ $(".playLineTwo").addClass("playLineTwo playLineTwoPause");
 $(".playLineThree").addClass("playLineThree playLineThreePause");
 $(".playArrow").addClass("playArrow playArrowPause");
 $scope.setProject();
+} else {
+$(".youtubeHolder").removeClass("showYoutube");
+}
+openMovie++;
 }
 
 $scope.getList = function() {

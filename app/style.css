@@ -244,27 +244,26 @@ margin-top:20px;
 line-height:25px;
 }
 
-#menuInformationRatingTitle {
-font-size:12px;
-font-family:Lato;
-font-weight:300;
-color:rgba(255,255,255,1);
-text-shadow:0 0 10px rgba(0,0,0,1);
-text-transform:uppercase;
-}
-
 #menuInformationRating {
-width:10px;
-height:5px;
-background-color:rgba(0,0,0,.5);
--webkit-transform: scale(20,1);
-margin:20px 0 0 96px;
-
+width:80px;
+height:20px;
+background-color:rgba(0,0,0,0);
+position:relative;
+font-size:18px;
+color:rgba(255,255,255,.5);
+margin-top:15px;
 }
 
 #calcLength {
-background-color:rgba(255,255,255,1);
+background-color:rgba(255,255,255,0);
 height:100%;
+width:100%;
+font-size:18px;
+color:#fff;
+overflow:hidden;
+position:absolute;
+left:0px;
+top:0px;
 }
 
 .search {
