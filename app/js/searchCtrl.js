@@ -8,8 +8,6 @@ $scope.getList = function() {
 }
 $scope.getResults = function() {
 	 $scope.$apply();
-
-
 }
 
 
@@ -30,6 +28,9 @@ var url = 'https://api.themoviedb.org/3/search/movie?query=';
                 $scope.movies = json.results;
                 console.log($scope.movies);
                 $scope.getResults();
+
+
+
             },
             error: function(e) {
                 console.log(e.message);
@@ -39,12 +40,6 @@ var url = 'https://api.themoviedb.org/3/search/movie?query=';
 }
 
 
-
-
-
-
-});
-movieDataApp.controller('SearchCtrl', function ($scope,Movie) {
 
 
 

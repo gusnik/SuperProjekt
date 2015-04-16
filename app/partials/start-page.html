@@ -49,13 +49,40 @@
     </div>
     <div class="searchHolder">
     	<div id="searchInner">
-    		<input type="text" id="searchForm" name="searchForm" placeholder="Search..."/>
+    		<input type="text" id="searchForm" name="searchForm" placeholder="Search..." ng-keypress="checkEnter($event)"/>
+            <div id="searchSend" ng-click="getSearchResults();"></div>
             <div id="searchResults">
+            <div ng-repeat="movie in movies">
+ 				<a href="#/movie/{{movie.id}}">
+                	<div class="movieObject">
+ 						<img src ="https://image.tmdb.org/t/p/w300{{movie.poster_path}}" width="150"/>
+                        <div class="movieObjectTitle">{{movie.title}}</div>
+                        <div class="movieObjectYear">{{movie.release_date | date:'MMM d, yyyy'}}</div>
+                    </div>
+ 				</a>
+			</div>
         	</div>
         </div>
 
     </div>
     <div id="whiteStrip"></div>
 </div>
-<div id="topChoices">
+<div class="sectionHead">COMING SOON</div>
+<div id="comingSoon"></div>
+<div class="sectionHead">TOP 10</div>
+<div id="topTen"></div>
+<div class="sectionHead">NEWS</div>
+<div id="news"></div>
+<div id="footer">
+	<div id="footerHolder">
+    	<div class="footerSection">
+        	<div class="footerSectionHead">Recently Viewed</div>
+        </div>
+        <div class="footerSection">
+        	<div class="footerSectionHead">Site Map</div>
+        </div>
+        <div class="footerSection">
+        </div>
+    </div>
 </div>
+

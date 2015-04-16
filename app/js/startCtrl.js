@@ -101,5 +101,43 @@ $(".playLineThree").addClass("playLineThree playLineThreePause");
 $(".playArrow").addClass("playArrow playArrowPause");
 $scope.setProject();
 }
+
+$scope.getList = function() {
+	return Movie.getObjectlist();
+	$scope.movieList = Movie.getObjectlist();
+
+}
+
+$scope.getSearchResults = function() {
+var valu = $("#searchForm").val();
+var url = 'https://api.themoviedb.org/3/search/movie?query=';
+		userInp = valu;
+        key = '&api_key=33e53562fbe46873e9379ecef2545dbc';
+        $.ajax({
+            type: 'GET',
+            url: url + userInp + key,
+            async: false,
+            jsonpCallback: 'testing',
+            contentType: 'application/json',
+            dataType: 'jsonp',
+            success: function(json) {
+                console.dir(json);
+                $scope.movies = json.results;
+                console.log($scope.movies);
+                $scope.updatePop();
+
+            },
+            error: function(e) {
+                console.log(e.message);
+            }
+    });
+
+}
+
+$scope.checkEnter = function(keyEvent) {
+  //if (keyEvent.which === 13)
+    $scope.getSearchResults();
+}
+
  
 });
