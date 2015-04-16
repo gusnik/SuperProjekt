@@ -1,4 +1,3 @@
-
 movieDataApp.controller('MovieCtrl', function ($scope,$routeParams,Movie) {
 
 $scope.ratingValues = [1, 2, 3, 4, 5];
@@ -59,7 +58,8 @@ $scope.$watch('userRating', function(newvalue, oldvalue){
 
 $scope.startPartial();
 
-
-
-
+$scope.updatePop = function() {
+	 $scope.$apply();
+}
+ 
 });

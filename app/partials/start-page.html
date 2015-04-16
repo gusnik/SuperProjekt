@@ -1,23 +1,87 @@
-<<<<<<< Updated upstream
-<div id="startPageMain">
-	<p>Hej och välkomna till vår filmdatabas. Här kan ni söka efter specifika filmer eller särskilda genrer som intresserar er. Gillar ni någon film extra mycket så kan ni lägga till dem i er favoritlista.  </p>
-
-
+<div id="header">
+	<div class="menuInfoHolder">
+		<div id="logo"></div>
+    	<div class="menuObject" ng-click="openSearch()">
+        	SEARCH
+        	<div class="menuObjectImage search"></div>
+        </div>
+    	<div class="menuObject">
+        	DISCOVER
+        	<div class="menuObjectImage discovery"></div>
+        </div>
+    	<div class="menuObject menuObjectFloatRight">
+        	TV SHOWS
+        </div>  
+    	<div class="menuObject menuObjectFloatRight sel">
+        	MOVIES
+        </div>  
+    </div>
 </div>
-=======
-
-<div>
-	<a>Hej och välkomna till film</a>
->>>>>>> Stashed changes
-
-
-<a href="#/search">Klicka här för att börja</a>
-
-<<<<<<< Updated upstream
-
-
-<p ng-click="test()">Klicka här för att börja</p>
-=======
+<div id="contentHolder">
+	<div class="contentImage">
+    </div>
+	<div id="contentMenu">
+		<div class="contentImage contentImageBlur">
+    	</div>
+    </div>
+    <div id="contentMenuInfo">
+    	<div class="menuInfoHolder">
+        	<div id="moviePlay" ng-click="openMovie()">
+            	<div class="moviePlayButton">
+                	<div class="playArrow"></div>
+                	<div class="playLineBase playLineOne"></div>
+                    <div class="playLineBase playLineTwo"></div>
+                    <div class="playLineBase playLineThree"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="menuInformation">
+   		<div id="menuInformationTitle">{{ popInfo.title }}</div>
+        <div id="menuInformationTagline">{{ popInfo.tagline }}</div>
+        <div id="menuInformationRating">&#9733;&#9733;&#9733;&#9733;&#9733;
+        <div id="calcLength" ng-style="{'width': datWidth }">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        </div>
+    </div>
+    <div class="youtubeHolder">
+    	<div id="youtubeInner">
+        	<iframe id="ytplayer" type="text/html" width="100%" height="100%" ng-src="{{currentProjectUrl}}" frameborder="0"/>
+        </div>
+    </div>
+    <div class="searchHolder">
+    	<div id="searchInner">
+    		<input type="text" id="searchForm" name="searchForm" placeholder="Search..." ng-keypress="checkEnter($event)"/>
+            <div id="searchSend" ng-click="getSearchResults();"></div>
+            <div id="searchResults">
+            <div ng-repeat="movie in movies">
+ 				<a href="#/movie/{{movie.id}}">
+                	<div class="movieObject">
+ 						<img src ="https://image.tmdb.org/t/p/w300{{movie.poster_path}}" width="150"/>
+                        <div class="movieObjectTitle">{{movie.title}}</div>
+                        <div class="movieObjectYear">{{movie.release_date | date:'MMM d, yyyy'}}</div>
+                    </div>
+ 				</a>
+			</div>
+        	</div>
+        </div>
+    </div>
+    <div id="whiteStrip"></div>
 </div>
-
->>>>>>> Stashed changes
+<div class="sectionHead">COMING SOON</div>
+<div id="comingSoon"></div>
+<div class="sectionHead">TOP 10</div>
+<div id="topTen"></div>
+<div class="sectionHead">NEWS</div>
+<div id="news"></div>
+<div id="footer">
+	<div id="footerHolder">
+    	<div class="footerSection">
+        	<div class="footerSectionHead">Recently Viewed</div>
+        </div>
+        <div class="footerSection">
+        	<div class="footerSectionHead">Site Map</div>
+        </div>
+        <div class="footerSection">
+        </div>
+    </div>
+</div>
