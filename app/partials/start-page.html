@@ -68,9 +68,46 @@
     <div id="whiteStrip"></div>
 </div>
 <div class="sectionHead">COMING SOON</div>
-<div id="comingSoon"></div>
+<div id="comingSoon">
+	<div id="chooseTypeHolder">
+    	<div class="typeObject typeObjectSel">
+        Overall
+        </div>
+        <div class="typeObject">
+        Genre
+        </div>
+    	<div class="typeObject">
+        Siegfrid Hailton
+        </div>
+    </div>
+	<div id="comingSoonDatesHolder">
+    	<div class="comingSoonDatesObject" ng-repeat="dates in date" ng-class="{comingSoonDatesObjectSel:$first}">{{dates | date:'EEE. MMM d'}}</div>
+    </div>
+    <div id="comingSoonMovieHolder">
+    	<div ng-repeat="coming in comingSoonList">
+        	<a href="#/movie/{{coming.id}}">
+    		<div class="comingSoonMovieObject" ng-style="{'background-image':'url(https://image.tmdb.org/t/p/w300{{coming.poster_path}})'}"></div>
+            </a>
+        </div>
+    </div>
+</div>
 <div class="sectionHead">TOP 10</div>
-<div id="topTen"></div>
+<div id="topTen">
+	<div id="chooseTypeHolder">
+    	<div class="typeObject typeObjectSel">
+        Box Office
+        </div>
+        <div class="typeObject">
+        Top Movies
+        </div>
+    	<div class="typeObject">
+        Top Genre
+        </div>
+    	<div class="typeObject">
+        Top Actor
+        </div>
+    </div>
+</div>
 <div class="sectionHead">NEWS</div>
 <div id="news"></div>
 <div id="footer">

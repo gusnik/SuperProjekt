@@ -1,7 +1,5 @@
-
 movieDataApp.factory('Movie',function ($resource) {
 
-<<<<<<< HEAD
 var objectList = [];
 var userRatingList = [];
 
@@ -43,10 +41,5 @@ else{
   return this;
 
 });
-=======
+
 //this.fetchPop = $resource('https://api.themoviedb.org/3/discover/movie?sort_by=popularity.desc&append_to_response=trailers',{api_key:'33e53562fbe46873e9379ecef2545dbc'});
->>>>>>> mackes-branch
-
-
-return this;
-});

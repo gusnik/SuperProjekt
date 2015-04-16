@@ -24,6 +24,7 @@ angular.element(document).ready(function () {
             dataType: 'jsonp',
             success: function(json) {
 				var number = 2;
+				console.log(json);
 				imageLink = "https://image.tmdb.org/t/p/w1920" + json.results[number].backdrop_path;
 				$(".contentImage").css("background-image","url(" + imageLink + ")");
 				$scope.getMovieByID(json.results[number].id);
@@ -109,11 +110,7 @@ $(".youtubeHolder").removeClass("showYoutube");
 openMovie++;
 }
 
-$scope.getList = function() {
-	return Movie.getObjectlist();
-	$scope.movieList = Movie.getObjectlist();
 
-}
 
 $scope.getSearchResults = function() {
 var valu = $("#searchForm").val();
@@ -145,6 +142,48 @@ $scope.checkEnter = function(keyEvent) {
   //if (keyEvent.which === 13)
     $scope.getSearchResults();
 }
+
+angular.element(document).ready(function () {
+	var dateList = [];
+	for(var x=0; x<7;x++) {
+	var someDate = new Date();
+	var numberOfDaysToAdd = x;
+	someDate.setDate(someDate.getDate() + numberOfDaysToAdd); 
+	var dd = someDate.getDate();
+	var mm = ("0" + (someDate.getMonth() + 1)).slice(-2)
+	var y = someDate.getFullYear();
+	var someFormattedDate = y + '-'+ mm + '-'+ dd;
+	dateList.push(someFormattedDate);
+	} 
+	$scope.date = dateList;
+});
+
+angular.element(document).ready(function () {
+	var dating = $scope.date[0];
+	var url = 'https://api.themoviedb.org/3/discover/movie?primary_release_date.gte=' + dating + '&primary_release_date.lte=2015-10-16';
+        key = '&api_key=33e53562fbe46873e9379ecef2545dbc';
+        $.ajax({
+            type: 'GET',
+            //url: url + userInp + key,
+			url: url + key,
+            async: false,
+            jsonpCallback: 'testing2',
+            contentType: 'application/json',
+            dataType: 'jsonp',
+            success: function(json) {
+				var comingSoonList = [];
+				for(var x=0; x<5;x++) {
+				comingSoonList.push(json.results[x]);
+				}
+				console.log(comingSoonList);
+				$scope.comingSoonList = comingSoonList;
+            },
+            error: function(e) {
+				alert("RÖV");
+                console.log(e.message);
+            }
+    });
+});
 
  
 });
