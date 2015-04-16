@@ -107,6 +107,17 @@
         Top Actor
         </div>
     </div>
+    <div id="topTenHolder">
+    	<div ng-repeat="topTen in topTenList">
+    		<div ng-class-odd="'topTenObjectOdd'" ng-class-even="'topTenObjectEven'">
+            	<div id="topTenNumber">{{$index + 1}}</div>
+                <div id="topTenImage"><img src="https://image.tmdb.org/t/p/w300{{topTen.poster_path}}" width="100%"/></div>
+                <div id="topTenName">{{topTen.title}}</div>
+                <div id="topTenRating">Rating: {{topTen.vote_average}}</div>
+            </div>
+        </div>
+        <div id="showMore">see more</div>
+    </div>
 </div>
 <div class="sectionHead">NEWS</div>
 <div id="news"></div>

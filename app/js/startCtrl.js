@@ -73,7 +73,6 @@ var url = 'https://api.themoviedb.org/3/movie/';
                 $scope.popInfo = json;
 				$scope.datWidth = json.vote_average*10 + "%";
 				$scope.getVideos(json.id);
-
             },
             error: function(e) {
                 console.log(e.message);
@@ -160,7 +159,7 @@ angular.element(document).ready(function () {
 
 angular.element(document).ready(function () {
 	var dating = $scope.date[0];
-	var url = 'https://api.themoviedb.org/3/discover/movie?primary_release_date.gte=' + dating + '&primary_release_date.lte=2015-10-16';
+	var url = 'https://api.themoviedb.org/3/discover/movie?primary_release_date.gte=' + dating + '&primary_release_date.lte=2015-10-16&';
         key = '&api_key=33e53562fbe46873e9379ecef2545dbc';
         $.ajax({
             type: 'GET',
@@ -177,6 +176,34 @@ angular.element(document).ready(function () {
 				}
 				console.log(comingSoonList);
 				$scope.comingSoonList = comingSoonList;
+            },
+            error: function(e) {
+				alert("RÖV");
+                console.log(e.message);
+            }
+    });
+});
+
+angular.element(document).ready(function () {
+	var dating = $scope.date[0];
+	var url = 'https://api.themoviedb.org/3/discover/movie?sort_by=popularity.desc';
+        key = '&api_key=33e53562fbe46873e9379ecef2545dbc';
+        $.ajax({
+            type: 'GET',
+            //url: url + userInp + key,
+			url: url + key,
+            async: false,
+            jsonpCallback: 'testing3',
+            contentType: 'application/json',
+            dataType: 'jsonp',
+            success: function(json) {
+				console.log(json);
+				var topTenList = [];
+				for(var x=0; x<5;x++) {
+				topTenList.push(json.results[x]);
+				}
+				console.log(topTenList);
+				$scope.topTenList = topTenList;
             },
             error: function(e) {
 				alert("RÖV");
