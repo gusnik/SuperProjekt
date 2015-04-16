@@ -5,7 +5,7 @@ $scope.ratingValues = [1, 2, 3, 4, 5];
 $scope.currentMovie = '';
 
 $scope.getResults = function() {
-	 $scope.$apply();
+     $scope.$apply();
 }
 
 
@@ -16,7 +16,7 @@ $scope.startPartial = function() {
 $scope.getMovieByID = function() {
 var currentMovieID = $routeParams.movieID;
 var url = 'https://api.themoviedb.org/3/movie/';
-		userInp = currentMovieID;
+        userInp = currentMovieID;
         key = '?api_key=33e53562fbe46873e9379ecef2545dbc';
         $.ajax({
             type: 'GET',
@@ -31,6 +31,8 @@ var url = 'https://api.themoviedb.org/3/movie/';
                 $scope.currentMovie = json;
                 $scope.userRating = Movie.getUserRating($scope.currentMovie.id);
                 console.log($scope.userRating);
+                imageLink = "https://image.tmdb.org/t/p/w1920" + json.backdrop_path;
+                $(".contentImage").css("background-image","url(" + imageLink + ")");
                 $scope.getResults();
 
             },
@@ -59,7 +61,7 @@ $scope.$watch('userRating', function(newvalue, oldvalue){
 $scope.startPartial();
 
 $scope.updatePop = function() {
-	 $scope.$apply();
+     $scope.$apply();
 }
  
 });
