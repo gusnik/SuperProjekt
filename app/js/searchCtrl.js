@@ -8,8 +8,6 @@ $scope.getList = function() {
 }
 $scope.getResults = function() {
 	 $scope.$apply();
-
-
 }
 
 
