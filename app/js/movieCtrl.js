@@ -4,6 +4,8 @@ $scope.ratingValues = [1, 2, 3, 4, 5];
 
 $scope.currentMovie = '';
 
+
+
 $scope.getResults = function() {
      $scope.$apply();
 }
@@ -88,6 +90,12 @@ $scope.$watch('userRating', function(newvalue, oldvalue){
     $scope.setUserRating();
 
 })
+
+scope.addToFavourites = function() {
+    Movie.addToFavouritesList($scope.currentMovie.id);
+}
+
+
 
 
 $scope.startPartial();
