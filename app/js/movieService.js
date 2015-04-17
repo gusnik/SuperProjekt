@@ -2,8 +2,8 @@ movieDataApp.factory('Movie',function ($resource) {
 
 var objectList = [];
 var userRatingList = [];
-var favouritesList = [333, 345, 346];
 var recentMovies = [];
+var favouritesList = [157336, 122917, 177572];
 
 
 this.recentMoviesFunction = function(inputID) {
@@ -69,10 +69,6 @@ this.addToFavouritesList = function(inputID) {
 this.returnFavouritesList = function(){
     return favouritesList;
 }
-
-
-
-
 
   return this;
 

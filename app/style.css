@@ -440,9 +440,11 @@ overflow:hidden;
 #news {
 width:90%;
 max-width:980px;
-height:200px;
+height:142px;
 margin:0px auto 0 auto;
-background-color:rgba(0,0,0,.05);
+background-color:rgba(0,0,0,0);
+border-bottom:0px solid rgba(239,213,87,1);
+overflow:hidden;
 }
 
 #footer {
@@ -487,13 +489,13 @@ font-size:18px;
 width:140px;
 height:auto;
 float:left;
-border-bottom:4px solid rgba(0,0,0,.1);
+border-bottom:2px solid rgba(0,0,0,.1);
 color:rgba(0,0,0,.2);
 padding: 0 0 5px 10px;
 }
 
 .typeObjectSel {
-border-bottom:4px solid rgba(239,213,87,1);
+border-bottom:2px solid rgba(239,213,87,1);
 color:rgba(239,213,87,1);
 }
 
@@ -612,4 +614,41 @@ padding:3px 0 3px 0;
 font-family:Lato;
 font-size:12px;
 font-size:300;
+}
+
+.favouriteObject {
+width:140px;
+height:140px;
+background-color:rgba(0,0,0,.02);
+border-right:1px solid #fff;
+float:left;
+box-sizing:border-box;
+}
+
+.favouriteObjectImage {
+width:70px;
+height:70px;
+margin:15px 0 0 35px;
+border-radius:40px;
+background-size:cover;
+overflow:hidden;
+}
+
+.favouriteObjectHeart {
+width:30px;
+height:30px;
+background-image:url(img/heartVit.png);
+background-size:contain;
+margin:20px 0 0 20px;
+}
+
+.favouriteObjectName {
+width:90%;
+height:auto;
+font-family:Lato;
+font-weight:400;
+color:rgba(0,0,0,.5);
+text-align:center;
+margin:15px auto 0 auto;
+font-size:12px;
 }
