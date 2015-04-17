@@ -32,7 +32,8 @@ var url = 'https://api.themoviedb.org/3/movie/';
                 $scope.userRating = Movie.getUserRating($scope.currentMovie.id);
                 console.log($scope.userRating);
                 imageLink = "https://image.tmdb.org/t/p/w1920" + json.backdrop_path;
-                $(".contentImage").css("background-image","url(" + imageLink + ")");
+                $(".contentImage").css("background-image","url(" + imageLink + ")");   
+                $scope.datWidth = json.vote_average*10 + "%";
                 $scope.getResults();
 
             },
@@ -41,6 +42,37 @@ var url = 'https://api.themoviedb.org/3/movie/';
             }
     });
 
+}
+
+$scope.getSearchResults = function() {
+var valu = $("#searchForm").val();
+var url = 'https://api.themoviedb.org/3/search/movie?query=';
+        userInp = valu;
+        key = '&api_key=33e53562fbe46873e9379ecef2545dbc';
+        $.ajax({
+            type: 'GET',
+            url: url + userInp + key,
+            async: false,
+            jsonpCallback: 'testing',
+            contentType: 'application/json',
+            dataType: 'jsonp',
+            success: function(json) {
+                console.dir(json);
+                $scope.movies = json.results;
+                console.log($scope.movies);
+                $scope.updatePop();
+
+            },
+            error: function(e) {
+                console.log(e.message);
+            }
+    });
+
+}
+
+$scope.checkEnter = function(keyEvent) {
+  //if (keyEvent.which === 13)
+    $scope.getSearchResults();
 }
 
 $scope.setUserRating = function(){
