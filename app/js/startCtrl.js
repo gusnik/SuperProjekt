@@ -23,7 +23,7 @@ angular.element(document).ready(function () {
             contentType: 'application/json',
             dataType: 'jsonp',
             success: function(json) {
-				var number = 2;
+				var number = 0;
 				console.log(json);
 				imageLink = "https://image.tmdb.org/t/p/w1920" + json.results[number].backdrop_path;
 				$(".contentImage").css("background-image","url(" + imageLink + ")");

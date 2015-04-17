@@ -2,7 +2,7 @@ movieDataApp.factory('Movie',function ($resource) {
 
 var objectList = [];
 var userRatingList = [];
-var favouritesList = [333, 345, 346];
+var favouritesList = [157336, 122917, 177572];
 
 
 this.updateUserRating = function(inputID, inputRating){

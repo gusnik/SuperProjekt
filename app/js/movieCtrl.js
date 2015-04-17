@@ -91,7 +91,7 @@ $scope.$watch('userRating', function(newvalue, oldvalue){
 
 })
 
-scope.addToFavourites = function() {
+$scope.addToFavourites = function() {
     Movie.addToFavouritesList($scope.currentMovie.id);
 }
 

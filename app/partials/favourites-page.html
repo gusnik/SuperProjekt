@@ -1,5 +1,10 @@
-<div id="entireFavouritesPage">
-
-<div ng-repeat = "fav in currentFavourites"> {{ fav.title }} </div>
-
- </div>
+<div ng-repeat = "fav in currentFavourites">
+	<div class="favouriteObject">
+    	<div class="favouriteObjectImage" ng-style="{'background-image':'url(https://image.tmdb.org/t/p/w300{{fav.poster_path}})'}">
+        	<div class="favouriteObjectHeart"></div>
+        </div>
+        <div class="favouriteObjectName">
+        {{fav.title}}
+        </div>
+    </div>
+</div>
