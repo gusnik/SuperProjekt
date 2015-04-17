@@ -1,6 +1,4 @@
-
 movieDataApp.factory('Movie',function ($resource) {
-
 
 var objectList = [];
 var userRatingList = [];
