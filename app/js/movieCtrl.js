@@ -36,7 +36,10 @@ var url = 'https://api.themoviedb.org/3/movie/';
                 imageLink = "https://image.tmdb.org/t/p/w1920" + json.backdrop_path;
                 $(".contentImage").css("background-image","url(" + imageLink + ")");   
                 $scope.datWidth = json.vote_average*10 + "%";
+                $scope.addToRecent();
+
                 $scope.getResults();
+
 
             },
             error: function(e) {
@@ -86,22 +89,26 @@ $scope.test = function(){
     console.log($scope.userRating);
 }
 
-$scope.$watch('userRating', function(newvalue, oldvalue){
+$scope.$watch('userRating', function(newvalue, oldvalue){   
     $scope.setUserRating();
 
 })
 
-scope.addToFavourites = function() {
+$scope.addToFavourites = function() {
     Movie.addToFavouritesList($scope.currentMovie.id);
+
+}
+
+$scope.addToRecent = function() {
+    Movie.recentMoviesFunction($scope.currentMovie.id);
 }
 
 
-
-
-$scope.startPartial();
 
 $scope.updatePop = function() {
      $scope.$apply();
 }
+$scope.startPartial();
+
  
 });

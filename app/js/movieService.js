@@ -3,7 +3,22 @@ movieDataApp.factory('Movie',function ($resource) {
 var objectList = [];
 var userRatingList = [];
 var favouritesList = [333, 345, 346];
+var recentMovies = [];
 
+
+this.recentMoviesFunction = function(inputID) {
+    if (recentMovies.length > 3){
+        var indexToRemove = 0;
+        var numberToRemove = 1;
+        recentMovies.splice(indexToRemove, numberToRemove);
+    }
+    recentMovies.push(inputID);
+}
+
+this.returnRecentList = function() {
+    return recentMovies;
+
+}
 
 this.updateUserRating = function(inputID, inputRating){
     inputTuple = {"ID": inputID, "Rating":inputRating};
