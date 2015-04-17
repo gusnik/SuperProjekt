@@ -1,22 +1,5 @@
-<div id="header">
-	<div class="menuInfoHolder">
-		<div id="logo"></div>
-    	<div class="menuObject" ng-click="openSearch()">
-        	SEARCH
-        	<div class="menuObjectImage search"></div>
-        </div>
-    	<div class="menuObject">
-        	DISCOVER
-        	<div class="menuObjectImage discovery"></div>
-        </div>
-    	<div class="menuObject menuObjectFloatRight">
-        	TV SHOWS
-        </div>  
-    	<div class="menuObject menuObjectFloatRight sel">
-        	MOVIES
-        </div>  
-    </div>
-</div>
+<ng-include src="'partials/header.html'" ng-controller="HeadCtrl"></ng-include>
+
 <div id="contentHolder">
 	<div class="contentImage">
     </div>
@@ -73,15 +56,5 @@
 <div id="topTen"></div>
 <div class="sectionHead">NEWS</div>
 <div id="news"></div>
-<div id="footer">
-	<div id="footerHolder">
-    	<div class="footerSection">
-        	<div class="footerSectionHead">Recently Viewed</div>
-        </div>
-        <div class="footerSection">
-        	<div class="footerSectionHead">Site Map</div>
-        </div>
-        <div class="footerSection">
-        </div>
-    </div>
-</div>
+
+<ng-include src="'partials/footer.html'" ng-controller="FootCtrl"></ng-include>
