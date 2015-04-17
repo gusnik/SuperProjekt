@@ -2,6 +2,8 @@ movieDataApp.factory('Movie',function ($resource) {
 
 var objectList = [];
 var userRatingList = [];
+var favouritesList = [333, 345, 346];
+
 
 this.updateUserRating = function(inputID, inputRating){
     inputTuple = {"ID": inputID, "Rating":inputRating};
@@ -35,6 +37,25 @@ else{
     return '';
 }
 }
+
+
+this.addToFavouritesList = function(inputID) {
+    if (favouritesList.length > 0){
+        for (x in favouritesList) {
+            if (inputID === favouritesList[x]){
+                var index = favouritesList.indexOf(userRatingList[x]);
+                favouritesList.splice(index, 1);
+            }
+        }
+    }
+    favouritesList.push(inputID);
+}
+
+this.returnFavouritesList = function(){
+    return favouritesList;
+}
+
+
 
 
 
