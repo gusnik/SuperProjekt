@@ -652,3 +652,37 @@ text-align:center;
 margin:15px auto 0 auto;
 font-size:12px;
 }
+
+#recentPageHolder {
+width:100%;
+height:100%;
+}
+
+.recentPageObject {
+width:100%;
+height:40px;
+background-color:transparent;
+margin-top:5px;
+overflow:hidden;
+}
+
+.recentPageImage {
+width:20px;
+height:30px;
+background-size:cover;
+margin-top:5px;
+float:left;
+}
+
+.recentPageTitle {
+width:215px;
+height:auto;
+margin-top:5px;
+padding:5px 0 0 15px;
+font-size:12px;
+font-family:Lato;
+font-weight:300;
+float:left;
+color:#fff;
+background-color:transparent;
+}

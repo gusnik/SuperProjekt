@@ -14,7 +14,9 @@ $scope.startPartial = function() {
 	}
 }
 
-
+$scope.getResults = function() {
+	$scope.$apply();
+}
 
 
 $scope.getFavouriteseByID = function(userInp) {
