@@ -54,7 +54,7 @@
             <div id="searchSend" ng-click="getSearchResults();"></div>
             <div id="searchResults">
             <div ng-repeat="movie in movies">
- 				<a href="#/movie/{{movie.id}}">
+ 				<a href="#/movie/{{ movie.id }}">
                 	<div class="movieObject">
  						<img src ="https://image.tmdb.org/t/p/w300{{movie.poster_path}}" width="150"/>
                         <div class="movieObjectTitle">{{movie.title}}</div>
