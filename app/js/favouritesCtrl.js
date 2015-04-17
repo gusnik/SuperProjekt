@@ -29,7 +29,7 @@ $scope.getFavouriteseByID = function(userInp) {
 		    key = '?api_key=33e53562fbe46873e9379ecef2545dbc';
 		    $.ajax({
 		        type: 'GET',
-		        url: url + userInp + key,
+		        url: url + userInp + 	key,
 		        async: false,
 		        //jsonpCallback: 'testing',
 		        contentType: 'application/json',

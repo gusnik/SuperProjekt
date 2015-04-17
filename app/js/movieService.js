@@ -59,7 +59,7 @@ this.addToFavouritesList = function(inputID) {
     if (favouritesList.length > 0){
         for (x in favouritesList) {
             if (inputID === favouritesList[x]){
-                var index = favouritesList.indexOf(userRatingList[x]);
+                var index = favouritesList.indexOf(favouritesList[x]);
                 favouritesList.splice(index, 1);
             }
         }
