@@ -20,8 +20,8 @@ movieDataApp.config(['$routeProvider',
         templateUrl: 'partials/favourites-page.html',
         controller: 'FavouritesCtrl'
       }).
-      when('/checkout', {
-        templateUrl: 'partials/recommended.html',
+      when('/recommended', {
+        templateUrl: 'partials/recommended-page.html',
         controller: 'RecommendedCtrl'
       }).
       when('/final-page', {

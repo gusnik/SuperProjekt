@@ -91,6 +91,20 @@ $scope.openSearch = function() {
 	}
 	openSearchVar++;
 }
+var recommendedVar = 0;
+
+$scope.openrecommended = function() {
+    if(openRecommendedVar%2==0) {
+        $(".recommendedHolder").addClass("recommendedHolder recommendedHolderOpen");
+        document.getElementById("searchForm").focus();
+    } else {
+        $(".recommendedHolder").removeClass("recommendedHolderOpen");
+
+    }
+    openRecommendedVar++;
+}
+
+
 
 var openMovie = 0;
 $scope.openMovie = function() {

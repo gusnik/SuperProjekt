@@ -4,9 +4,16 @@ var objectList = [];
 var userRatingList = [];
 var recentMovies = [157336, 177572];
 var favouritesList = [157336, 122917, 177572];
+var movie
 
 
 this.recentMoviesFunction = function(inputID) {
+    for(i in recentMovies){
+        if (inputID === recentMovies[i]){ 
+            recentMovies.splice(i, 1);
+        }
+    }
+    
     if (recentMovies.length > 4){
         var indexToRemove = 0;
         var numberToRemove = 1;
@@ -54,6 +61,26 @@ else{
 }
 }
 
+this.getMovieByID = function(id){
+    var url = 'https://api.themoviedb.org/3/movie/';
+    key = '?api_key=33e53562fbe46873e9379ecef2545dbc';
+    $.ajax({
+        type: 'GET',
+        url: url + id + key,
+        async: false,
+        contentType: 'application/json',
+        dataType: 'jsonp',
+        success: function(json) {
+            console.dir(json);
+
+        },
+        error: function(e) {
+            console.log(e.message);
+        }
+    });
+
+}
+
 
 this.addToFavouritesList = function(inputID) {
     if (favouritesList.length > 0){
@@ -67,6 +94,7 @@ this.addToFavouritesList = function(inputID) {
     favouritesList.push(inputID);
 }
 
+
 this.returnFavouritesList = function(){
     return favouritesList;
 }
@@ -74,3 +102,5 @@ this.returnFavouritesList = function(){
   return this;
 
 });
+
+
