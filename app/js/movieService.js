@@ -2,17 +2,18 @@ movieDataApp.factory('Movie',function ($resource) {
 
 var objectList = [];
 var userRatingList = [];
-var favouritesList = [333, 345, 346];
-var recentMovies = [];
+var recentMovies = [157336, 177572];
+var favouritesList = [157336, 122917, 177572];
 
 
 this.recentMoviesFunction = function(inputID) {
-    if (recentMovies.length > 3){
+    if (recentMovies.length > 4){
         var indexToRemove = 0;
         var numberToRemove = 1;
         recentMovies.splice(indexToRemove, numberToRemove);
     }
-    recentMovies.push(inputID);
+	
+	recentMovies.push(inputID);
 }
 
 this.returnRecentList = function() {
@@ -69,10 +70,6 @@ this.addToFavouritesList = function(inputID) {
 this.returnFavouritesList = function(){
     return favouritesList;
 }
-
-
-
-
 
   return this;
 

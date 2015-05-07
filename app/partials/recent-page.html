@@ -1,5 +1,11 @@
-
-
-<div ng-repeat ="recent in recentMovieObjects">
-{{ recent.title }}
+<div id="recentPageHolder">
+	<div ng-repeat ="recent in recentMovieObjects">
+    	<div class="recentPageObject">
+        	<div class="recentPageImage" ng-style="{'background-image':'url(https://image.tmdb.org/t/p/w300{{recent.poster_path}})'}">
+            </div>
+            <div class="recentPageTitle">
+            {{$index + 1}}. {{recent.title}}
+            </div>
+    	</div>
+	</div>
 </div>
