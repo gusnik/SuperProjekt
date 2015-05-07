@@ -4,8 +4,6 @@ $scope.ratingValues = [1, 2, 3, 4, 5];
 
 $scope.currentMovie = '';
 
-
-
 $scope.getResults = function() {
      $scope.$apply();
 }
@@ -28,7 +26,7 @@ var url = 'https://api.themoviedb.org/3/movie/';
             contentType: 'application/json',
             dataType: 'jsonp',
             success: function(json) {
-                console.dir(json);
+                console.log(json);
                 console.log("Hej");
                 $scope.currentMovie = json;
                 $scope.userRating = Movie.getUserRating($scope.currentMovie.id);

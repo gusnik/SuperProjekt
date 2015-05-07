@@ -1,34 +1,6 @@
 <ng-include src="'partials/header.html'" ng-controller="HeadCtrl"></ng-include>
-<div id="contentHolder">
+<div id="contentHolderMoviePage">
 	<div class="contentImage">
-    </div>
-	<div id="contentMenu">
-		<div class="contentImage contentImageBlur">
-    	</div>
-    </div>
-    <div id="contentMenuInfo">
-    	<div class="menuInfoHolder">
-        	<div id="moviePlay" ng-click="openMovie()">
-            	<div class="moviePlayButton">
-                	<div class="playArrow"></div>
-                	<div class="playLineBase playLineOne"></div>
-                    <div class="playLineBase playLineTwo"></div>
-                    <div class="playLineBase playLineThree"></div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div id="menuInformation">
-   		<div id="menuInformationTitle">{{ currentMovie.title }}</div>
-        <div id="menuInformationTagline">{{ currentMovie.tagline }}</div>
-        <div id="menuInformationRating">&#9733;&#9733;&#9733;&#9733;&#9733;
-        <div id="calcLength" ng-style="{'width': datWidth }">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-        </div>
-    </div>
-    <div class="youtubeHolder">
-    	<div id="youtubeInner">
-        	<iframe id="ytplayer" type="text/html" width="100%" height="100%" ng-src="{{currentProjectUrl}}" frameborder="0"/>
-        </div>
     </div>
     <div class="searchHolder">
     	<div id="searchInner">
@@ -47,20 +19,39 @@
         	</div>
         </div>
     </div>
-    <div id="whiteStrip"></div>
+	<div id = "entireMovieHolder">
+    <div id="entireMovie">
+	<div id="movieLeft">
+		<div id="moviePoster"><img src ="https://image.tmdb.org/t/p/w300{{ currentMovie.poster_path }}" width="200"/></div>
+        <div id="coverInfo">
+        	<div id="coverInfoYear">{{ currentMovie.release_date | date : "yyyy" }}</div>
+            <div id="coverInfoTitle">{{ currentMovie.title}}</div>
+            <div id="coverInfoGenre">
+            	<div class="coverInfoGenreObject" ng-repeat="gen in currentMovie.genres">
+                	{{gen.name}} {{$last ? '' : ($index==currentMovie.genres.length-2) ? 'and&nbsp; ' : ',&nbsp; '}}
+                </div>
+            </div>
+            <div id="coverInfoLength">{{ currentMovie.runtime}} min</div>
+            <div id="coverInfoRating">
+           		<div id="menuInformationRating">&#9733;&#9733;&#9733;&#9733;&#9733;
+        			<div id="calcLength" ng-style="{'width': datWidth }">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        		</div>
+            </div>
+        </div>
+        <div id="restInfo">
+        </div>
+
+    </div>
+	</div>
+	</div>
 </div>
 
-<div ng-click="addToFavourites()">Favourites</div>
-
-<div id = "entireMovie">
-
-	<div id = "movieTitle"><p> {{ currentMovie.title }} </p> </div> 
-
-	<div id  = "moviePoster"> <img src ="https://image.tmdb.org/t/p/w300{{ currentMovie.poster_path }}"/> </div>
-	<div id = "movieDesc"> <p> {{ currentMovie.overview }} </div>
-
-	<div id = "releaseDate">Filmen släpptes: {{ currentMovie.release_date | date : "MMMM yyyy" }} </div>
-
+		<div id="movieDesc">{{ currentMovie.overview}}</div>
+		<div id="releaseDate">Filmen släpptes: {{ currentMovie.release_date | date : "MMMM yyyy" }} </div>
+    </div>
+    <div id="movieRight">
+    	<div ng-click="addToFavourites()">Favourites</div>
+	
 	<div id = "movieRating"> 	
 		<div id ="imdbRating"> {{ currentMovie.vote_average }} </div>
 		<div id ="userRating">
@@ -68,15 +59,11 @@
 			<option ng-repeat="num in ratingValues" value = '{{ num }}'> {{ num }} </option> 
 		</select>
 		<div id ="currentRating">Du har för närvarande satt: {{ userRating }} </div>
-
 		</div> 
 	</div>
-</div>
+    
 
 
-<p ng-click="test()"> HEJ KLICKA MEJJ </p>
 
-
-<a href="#/search"> Lekedi lek  </a>
 
 <ng-include src="'partials/footer.html'" ng-controller="FootCtrl"></ng-include>
