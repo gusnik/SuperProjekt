@@ -18,10 +18,13 @@ $scope.getResults = function() {
 
 $scope.test = function(){
 	console.log($scope.favourites);
+	$scope.getResults = function() {
+	 $scope.$apply();
+	}
+
+
 
 }
-
-
 
 $scope.getFavouriteseByID = function(userInp) {
 // $scope.favList = Movie.returnFavouritesList();
@@ -50,6 +53,12 @@ $scope.getFavouriteseByID = function(userInp) {
 
 
 $scope.startPartial();
+
+
+};
+
+
+
 
 
 });
