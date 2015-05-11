@@ -52,14 +52,6 @@ $scope.getFavouriteseByID = function(userInp) {
 }
 
 
-$scope.startPartial();
-
-
-};
-
-
-
-
 
 });
 
