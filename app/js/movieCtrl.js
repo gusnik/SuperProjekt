@@ -14,7 +14,7 @@ $scope.startPartial = function() {
 }
 
 $scope.getMovieByID = function() {
-var currentMovieID = $routeParams.movieID;
+currentMovieID = $routeParams.movieID;
 var url = 'https://api.themoviedb.org/3/movie/';
         userInp = currentMovieID;
         key = '?api_key=33e53562fbe46873e9379ecef2545dbc';
@@ -35,10 +35,8 @@ var url = 'https://api.themoviedb.org/3/movie/';
                 $(".contentImage").css("background-image","url(" + imageLink + ")");   
                 $scope.datWidth = json.vote_average*10 + "%";
                 $scope.addToRecent();
-
+				$scope.getCredits();
                 $scope.getResults();
-
-
             },
             error: function(e) {
                 console.log(e.message);
@@ -65,6 +63,28 @@ var url = 'https://api.themoviedb.org/3/search/movie?query=';
                 console.log($scope.movies);
                 $scope.updatePop();
 
+            },
+            error: function(e) {
+                console.log(e.message);
+            }
+    });
+
+}
+
+$scope.getCredits = function() {
+var url = 'http://api.themoviedb.org/3/movie/';
+        key = '?api_key=33e53562fbe46873e9379ecef2545dbc';
+        $.ajax({
+            type: 'GET',
+            url: url + currentMovieID + "/credits" + key,
+            async: false,
+            jsonpCallback: 'testing',
+            contentType: 'application/json',
+            dataType: 'jsonp',
+            success: function(json) {
+				$scope.people = json;
+                console.log(json);
+				$scope.getResults();
             },
             error: function(e) {
                 console.log(e.message);

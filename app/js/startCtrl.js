@@ -11,6 +11,7 @@ $scope.updatePop = function() {
 }
 
 angular.element(document).ready(function () {
+	alert("HEJ");
 	var url = 'https://api.themoviedb.org/3/discover/movie?sort_by=popularity.desc';
 	//var url = 'https://api.themoviedb.org/3/movie/157336/videos';
         key = '&api_key=33e53562fbe46873e9379ecef2545dbc';
@@ -108,8 +109,6 @@ $(".youtubeHolder").removeClass("showYoutube");
 }
 openMovie++;
 }
-
-
 
 $scope.getSearchResults = function() {
 var valu = $("#searchForm").val();
