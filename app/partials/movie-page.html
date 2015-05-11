@@ -36,15 +36,19 @@
             	<div class="ratingHolder">
                 	<div class="ratingHolderTitle">IMDB Rating</div>
                     <div class="ratingHolderImage">
-                    	<div class="ratingHolderImageIcon"></div>
-                        <div class="ratingHolderImageText"></div>
+                    	<div class="ratingHolderImageIcon">
+                        	<div class="ratingHolderImageFiller" ng-style="{'height': currentMovie.vote_average*10 + '%' }"></div>
+                        </div>
+                        <div class="ratingHolderImageText">{{currentMovie.vote_average}}</div>
                     </div>
                 </div>
                 <div class="ratingHolder">
                 	<div class="ratingHolderTitle">My Rating</div>
                     <div class="ratingHolderImage">
-                    	<div class="ratingHolderImageIcon"></div>
-                        <div class="ratingHolderImageText"></div>
+                    	<div class="ratingHolderImageIcon">
+                        	<div class="ratingHolderImageFiller" ng-style="{'height': userRating*10 + '%' }"></div>
+                        </div>
+                        <div class="ratingHolderImageText">{{userRating}}</div>
                     </div>
                 </div>
             </div>
@@ -52,8 +56,8 @@
         <div id="restInfo">
         	<div id="restInfoMore">
             	<div id="restInfoMoreText">
-                	{{ currentMovie.overview | limitTo: 280 }}{{currentMovie.overview.length > 280 ? '...' : ''}} 
-                    <div id="readMoreInfo">read more</div>
+                	{{ currentMovie.overview | limitTo: 280 }}{{currentMovie.overview.length > 280 ? '... read more' : ''}} 
+                    <!--<div id="readMoreInfo">read more</div>-->
                 </div>
                 <div id="restInfoButtons">
                 	<div class="restInfoButton buttonColor" ng-click="addToFavourites()">
@@ -99,13 +103,10 @@
 	<!-- här vare en divslut </div>, vette fan varför -->
     
 	<div id = "movieRating"> 	
-		<div id ="imdbRating"> {{ currentMovie.vote_average/2 }} </div>
-		<div id ="userRating">
-		<select name ="userRating" ng-model = "userRating" id="selectOpt">
-        	<option selected>Rate</option> 
-			<option ng-repeat="num in ratingValues" value = '{{ num }}'> {{ num }} </option> 
+		<div id="userRating">
+		<select name="userRating" ng-model="userRating" id="selectOpt" >
+			<option ng-repeat="num in ratingValues" value='{{ num }}'>{{ num }}</option> 
 		</select>
-		<div id ="currentRating">Du har för närvarande satt: {{ userRating }} </div>
 		</div> 
 	</div>
     

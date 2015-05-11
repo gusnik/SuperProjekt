@@ -71,7 +71,6 @@ var url = 'https://api.themoviedb.org/3/movie/';
             dataType: 'jsonp',
             success: function(json) {
                 $scope.popInfo = json;
-				$scope.datWidth = json.vote_average*10 + "%";
 				$scope.getVideos(json.id);
             },
             error: function(e) {

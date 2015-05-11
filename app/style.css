@@ -860,6 +860,10 @@ margin:-2px 5px 0 0;
 background-color:#eed461;
 }
 
+.buttonColor:active {
+background-color:#dac257;
+}
+
 #readMoreInfo {
 display:inline;
 color:rgba(0,0,0,.5);
@@ -882,6 +886,8 @@ height:25px;
 border:0px;
 margin:0px;
 padding:0px;
+border-radius:0px;
+outline: none;
 }
 
 #restInfoDetails {
@@ -940,6 +946,7 @@ font-weight:300;
 text-transform:uppercase;
 color:rgba(255,255,255,.9);
 font-size:10px;
+text-shadow:0px 0px 20px rgba(0,0,0,1);
 }
 
 .ratingHolderImage {
@@ -949,16 +956,36 @@ background-color:transparent;
 }
 
 .ratingHolderImageIcon {
-width:36px;
-height:36px;
-background-color:red;
+width:25px;
+height:25px;
+background-color:rgba(255,2552,255,.2);
 float:left;
--webkit-mask-image:url(img/circleBlack.png);
+-webkit-mask-image:url(img/starInvert.png);
+-webkit-mask-size: contain;
+overflow:hidden;
+position:relative;
+margin-top:5.5px;
+}
+
+.ratingHolderImageFiller {
+width:36px;
+position:absolute;
+left:0px;
+bottom:0px;
+background-color:rgba(238, 212, 97, 1.0);
 }
 
 .ratingHolderImageText {
 width:34px;
 height:36px;
-background-color:green;
+background-color:transparent;
 float:left;
+text-align:center;
+padding:9px 0 0 0;
+box-sizing:border-box;
+font-family:Lato;
+font-weight:400;
+font-size:14px;
+color:#fff;
+text-shadow:0px 0px 20px rgba(0,0,0,1);
 }
