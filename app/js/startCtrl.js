@@ -109,8 +109,6 @@ $(".youtubeHolder").removeClass("showYoutube");
 openMovie++;
 }
 
-
-
 $scope.getSearchResults = function() {
 var valu = $("#searchForm").val();
 var url = 'https://api.themoviedb.org/3/search/movie?query=';

@@ -33,29 +33,76 @@
             </div>
             <div id="coverInfoLength">{{ currentMovie.runtime}} min</div>
             <div id="coverInfoRating">
-           		<div id="menuInformationRating">&#9733;&#9733;&#9733;&#9733;&#9733;
-        			<div id="calcLength" ng-style="{'width': datWidth }">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-        		</div>
+            	<div class="ratingHolder">
+                	<div class="ratingHolderTitle">IMDB Rating</div>
+                    <div class="ratingHolderImage">
+                    	<div class="ratingHolderImageIcon"></div>
+                        <div class="ratingHolderImageText"></div>
+                    </div>
+                </div>
+                <div class="ratingHolder">
+                	<div class="ratingHolderTitle">My Rating</div>
+                    <div class="ratingHolderImage">
+                    	<div class="ratingHolderImageIcon"></div>
+                        <div class="ratingHolderImageText"></div>
+                    </div>
+                </div>
             </div>
         </div>
         <div id="restInfo">
+        	<div id="restInfoMore">
+            	<div id="restInfoMoreText">
+                	{{ currentMovie.overview | limitTo: 280 }}{{currentMovie.overview.length > 280 ? '...' : ''}} 
+                    <div id="readMoreInfo">read more</div>
+                </div>
+                <div id="restInfoButtons">
+                	<div class="restInfoButton buttonColor" ng-click="addToFavourites()">
+                    <img src="../img/heartVit.png" width="12" id="favImg"/>
+                    add to favorites
+                    </div>
+                    <div class="restInfoButton">trailer</div>
+                </div>
+            </div>
+            <div id="restInfoDetails">
+            	<div id="restInfoDetailsTitle">Movie Details</div>
+                <div class="restInfoDetailsRow">
+                	<div class="restInfoDetailsLeft">Directed</div>
+                    <div class="restInfoDetailsRight">
+                        <div class="peoples" ng-repeat="peoples in people.crew | filter:{department: 'Directing'}">
+                        {{peoples.name}} {{$last ? '' : ($index==actor.length-2) ? 'and&nbsp; ' : ',&nbsp; '}}
+                        </div>
+                    </div>
+                </div>
+                <div class="restInfoDetailsRow">
+                    <div class="restInfoDetailsLeft">Producers</div>
+                    <div class="restInfoDetailsRight">
+                        <div class="peoples" ng-repeat="peoples in people.crew | filter:{department: 'Production'}">
+                        {{peoples.name}} {{$last ? '' : ($index==actor.length-2) ? 'and&nbsp; ' : ',&nbsp; '}}
+                        </div>
+                    </div>
+                </div>
+                <div class="restInfoDetailsRow">
+                    <div class="restInfoDetailsLeft">Actors</div>
+                    <div class="restInfoDetailsRight">
+                    	<div class="peoples" ng-repeat="peoples in people.cast">
+                        {{peoples.name}} {{$last ? '' : ($index==actor.length-2) ? 'and&nbsp; ' : ',&nbsp; '}}
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
 
     </div>
 	</div>
 	</div>
 </div>
-
-		<div id="movieDesc">{{ currentMovie.overview}}</div>
-		<div id="releaseDate">Filmen släpptes: {{ currentMovie.release_date | date : "MMMM yyyy" }} </div>
-    </div>
-    <div id="movieRight">
-    	<div ng-click="addToFavourites()">Favourites</div>
-	
+	<!-- här vare en divslut </div>, vette fan varför -->
+    
 	<div id = "movieRating"> 	
-		<div id ="imdbRating"> {{ currentMovie.vote_average }} </div>
+		<div id ="imdbRating"> {{ currentMovie.vote_average/2 }} </div>
 		<div id ="userRating">
-		<select name ="userRating" ng-model = "userRating">
+		<select name ="userRating" ng-model = "userRating" id="selectOpt">
+        	<option selected>Rate</option> 
 			<option ng-repeat="num in ratingValues" value = '{{ num }}'> {{ num }} </option> 
 		</select>
 		<div id ="currentRating">Du har för närvarande satt: {{ userRating }} </div>
@@ -65,6 +112,7 @@
 </div>
 =======
     
+<<<<<<< HEAD
 hejehejh
     
 
@@ -72,4 +120,6 @@ hejehejh
 
 >>>>>>> origin/master
 
+=======
+>>>>>>> mackes-branch-4
 <ng-include src="'partials/footer.html'" ng-controller="FootCtrl"></ng-include>
