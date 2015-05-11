@@ -782,7 +782,7 @@ padding-left:10px;
 #coverInfoRating {
 width:auto;
 height:auto;
-background-color:red;
+background-color:transparent;
 position:relative;
 margin-top:40px;
 }
@@ -794,7 +794,7 @@ float:left;
 .ratingHolder {
 width:70px;
 height:50px;
-background-color:red;
+background-color:transparent;
 float:left;
 margin-right:10px;
 }
@@ -930,4 +930,35 @@ overflow:scroll;
 
 .peoples {
 float:right;
+}
+
+.ratingHolderTitle {
+width:70px;
+height:auto;
+font-family:Lato;
+font-weight:300;
+text-transform:uppercase;
+color:rgba(255,255,255,.9);
+font-size:10px;
+}
+
+.ratingHolderImage {
+width:70px;
+height:36px;
+background-color:transparent;
+}
+
+.ratingHolderImageIcon {
+width:36px;
+height:36px;
+background-color:red;
+float:left;
+-webkit-mask-image:url(img/circleBlack.png);
+}
+
+.ratingHolderImageText {
+width:34px;
+height:36px;
+background-color:green;
+float:left;
 }

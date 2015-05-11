@@ -33,8 +33,20 @@
             </div>
             <div id="coverInfoLength">{{ currentMovie.runtime}} min</div>
             <div id="coverInfoRating">
-            	<div class="ratingHolder"></div>
-                <div class="ratingHolder"></div>
+            	<div class="ratingHolder">
+                	<div class="ratingHolderTitle">IMDB Rating</div>
+                    <div class="ratingHolderImage">
+                    	<div class="ratingHolderImageIcon"></div>
+                        <div class="ratingHolderImageText"></div>
+                    </div>
+                </div>
+                <div class="ratingHolder">
+                	<div class="ratingHolderTitle">My Rating</div>
+                    <div class="ratingHolderImage">
+                    	<div class="ratingHolderImageIcon"></div>
+                        <div class="ratingHolderImageText"></div>
+                    </div>
+                </div>
             </div>
         </div>
         <div id="restInfo">
@@ -48,7 +60,7 @@
                     <img src="../img/heartVit.png" width="12" id="favImg"/>
                     add to favorites
                     </div>
-                    <div class="restInfoButton" ng-click="getCredits()">trailer</div>
+                    <div class="restInfoButton">trailer</div>
                 </div>
             </div>
             <div id="restInfoDetails">
@@ -84,11 +96,10 @@
 	</div>
 	</div>
 </div>
-
-    </div>
-	
+	<!-- här vare en divslut </div>, vette fan varför -->
+    
 	<div id = "movieRating"> 	
-		<div id ="imdbRating"> {{ currentMovie.vote_average }} </div>
+		<div id ="imdbRating"> {{ currentMovie.vote_average/2 }} </div>
 		<div id ="userRating">
 		<select name ="userRating" ng-model = "userRating" id="selectOpt">
         	<option selected>Rate</option> 
