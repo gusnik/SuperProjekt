@@ -53,15 +53,6 @@
 <div class="sectionHead">COMING SOON</div>
 <div id="comingSoon">
 	<div id="chooseTypeHolder">
-    	<div class="typeObject typeObjectSel">
-        Overall
-        </div>
-        <div class="typeObject">
-        Genre
-        </div>
-    	<div class="typeObject">
-        Citrus
-        </div>
     </div>
 	<div id="comingSoonDatesHolder">
     	<div class="comingSoonDatesObject" ng-repeat="dates in date" ng-class="{comingSoonDatesObjectSel:$first}">{{dates | date:'EEE. MMM d'}}</div>
@@ -74,21 +65,9 @@
         </div>
     </div>
 </div>
-<div class="sectionHead">TOP 10</div>
+<div class="sectionHead">TOP 5</div>
 <div id="topTen">
 	<div id="chooseTypeHolder">
-    	<div class="typeObject typeObjectSel">
-        Box Office
-        </div>
-        <div class="typeObject">
-        Top Movies
-        </div>
-    	<div class="typeObject">
-        Top Genre
-        </div>
-    	<div class="typeObject">
-        Top Actor
-        </div>
     </div>
     <div id="topTenHolder">
     	<div ng-repeat="topTen in topTenList">
@@ -101,10 +80,12 @@
             </div>
             </a>
         </div>
-        <div id="showMore">see more</div>
+        <div id="showMore"></div>
     </div>
 </div>
 <div class="sectionHead">FAVORITES</div>
+<div id="chooseTypeHolder">
+</div>
 <div id="news">
 	<ng-include src="'partials/favourites-page.html'" ng-controller="FavouritesCtrl"></ng-include>
 </div>
