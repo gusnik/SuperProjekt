@@ -1,8 +1,8 @@
 movieDataApp.controller('MovieCtrl', function ($scope,$routeParams,Movie) {
 
 $scope.ratingValues = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
-
 $scope.currentMovie = '';
+$scope.addOrRemove = "add to favourites";
 
 $scope.getResults = function() {
      if(!$scope.$$phase) {
@@ -13,9 +13,6 @@ $scope.getResults = function() {
 $scope.startPartial = function() {
     $scope.getMovieByID();
 }
-
-
-
 
 $scope.getMovieByID = function() {
     var currentMovieID = $routeParams.movieID;
@@ -36,7 +33,6 @@ $scope.getMovieByID = function() {
 });
 }
 
-
 $scope.getSearchResults = function() {
     var valu = $("#searchForm").val();
     Movie.getMovies.getSearch({query:valu}, function(data){
@@ -46,8 +42,6 @@ $scope.getSearchResults = function() {
      $scope.status = "There was an error";
 });
 }
-
-
 
 $scope.getCredits = function() {
     var currentMovieID = $routeParams.movieID;
@@ -86,7 +80,7 @@ $scope.$watch('userRating', function(newvalue, oldvalue){
 })
 
 $scope.addToFavourites = function() {
-    Movie.addToFavouritesList($scope.currentMovie.id);
+    $scope.addOrRemove = Movie.addToFavouritesList($scope.currentMovie.id);
 
 }
 

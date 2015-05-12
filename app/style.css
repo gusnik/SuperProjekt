@@ -408,7 +408,7 @@ margin-top:-10px;
 .sectionHead {
 width:90%;
 max-width:980px;
-height:50px;
+height:40px;
 margin:30px auto -10px auto;
 background-color:transparent;
 font-size:18px;
@@ -431,7 +431,7 @@ overflow:hidden;
 #comingSoon {
 width:90%;
 max-width:980px;
-height:400px;
+height:355px;
 margin:0px auto 0 auto;
 background-color:rgba(0,0,0,0);
 overflow:hidden;
@@ -441,7 +441,7 @@ overflow:hidden;
 width:90%;
 max-width:980px;
 height:142px;
-margin:0px auto 0 auto;
+margin:60px auto 0 auto;
 background-color:rgba(0,0,0,0);
 border-bottom:0px solid rgba(239,213,87,1);
 overflow:hidden;
@@ -478,11 +478,14 @@ font-weight:300;
 
 #chooseTypeHolder {
 width:100%;
+max-width:980px;
 height:auto;
 background-color:transparent;
 font-family:Lato;
 font-weight:300;
 font-size:18px;
+border-bottom:2px solid #efd557;
+margin:0 auto -40px auto;
 }
 
 .typeObject {
@@ -526,7 +529,7 @@ background-color:rgba(239,213,87,1);;
 width:100%;
 height:300px;
 background-color:transparent;
-margin-top:-20px;
+margin:-20px 0 -0 0;
 }
 
 .comingSoonMovieObject {
@@ -610,7 +613,7 @@ height:auto;
 background-color:rgba(0,0,0,.7);
 text-align:center;
 color:rgba(255,255,255,.4);
-padding:3px 0 3px 0;
+padding:5px 0 5px 0;
 font-family:Lato;
 font-size:12px;
 font-size:300;
