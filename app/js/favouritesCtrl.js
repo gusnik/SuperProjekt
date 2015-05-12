@@ -3,7 +3,6 @@ movieDataApp.controller('FavouritesCtrl', function ($scope,Movie) {
 
 $scope.currentFavourites = [];
 
-
 $scope.startPartial = function() {
 	$scope.favouritesObjects = Movie.returnFavouritesList();
 		for(i in $scope.favouritesObjects){
@@ -28,6 +27,9 @@ $scope.getFavouriteseByID = function(userInp) {
      $scope.status = "There was an error";
 });
 }
+
+$scope.startPartial();
+
 
 
 });
