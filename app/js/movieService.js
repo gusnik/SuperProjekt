@@ -24,6 +24,11 @@ this.getMovies = $resource(baseUrl, {api_key: '33e53562fbe46873e9379ecef2545dbc'
 
 
 this.recentMoviesFunction = function(inputID) {
+    for (i in recentMovies) {
+        if (inputID === recentMovies[i]) {
+            recentMovies.splice(i, 1);
+        }
+    }
     if (recentMovies.length > 4){
         var indexToRemove = 0;
         var numberToRemove = 1;
