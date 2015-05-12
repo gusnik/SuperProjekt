@@ -15,6 +15,11 @@ movieDataApp.controller('StartCtrl', function ($scope,Movie,$sce) {
         } 
         $scope.date = dateList;
     });
+
+    $scope.callTv = function(input){
+        Movie.tvFunction(input);
+        $scope.updatePop();
+    }
     	
     $scope.setProject = function () {
     	var id = "https://www.youtube.com/embed/"+ $scope.movieID + "?autoplay=1&controls=0&showinfo=0&rel=0";

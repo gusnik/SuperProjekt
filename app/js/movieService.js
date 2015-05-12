@@ -22,6 +22,12 @@ this.getMovies = $resource(baseUrl, {api_key: '33e53562fbe46873e9379ecef2545dbc'
 
 });
 
+this.tvFunction= function(input) {
+    selectMedia = input;
+    console.log(selectMedia);
+
+
+}
 
 this.recentMoviesFunction = function(inputID) {
     for (i in recentMovies) {
