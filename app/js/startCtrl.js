@@ -63,6 +63,7 @@ $scope.getVideos = function(videoId) {
 });
 }
 
+<<<<<<< HEAD
 $scope.getSearchResults = function() {
     var valu = $("#searchForm").val();
     Movie.getMovies.getSearch({query:valu}, function(data){
@@ -96,6 +97,24 @@ angular.element(document).ready(function() {
             var comingSoonList = [];
             for(var x=0; x<5;x++) {
             comingSoonList.push(data.results[x]);
+=======
+$scope.getMovieByID = function(userInp) {
+var url = 'https://api.themoviedb.org/3/movie/';
+        key = '?api_key=33e53562fbe46873e9379ecef2545dbc';
+        $.ajax({
+            type: 'GET',
+            url: url + userInp + key,
+            async: false,
+            jsonpCallback: 'testing',
+            contentType: 'application/json',
+            dataType: 'jsonp',
+            success: function(json) {
+                $scope.popInfo = json;
+				$scope.getVideos(json.id);
+            },
+            error: function(e) {
+                console.log(e.message);
+>>>>>>> mackes-branch-4
             }
             console.log(comingSoonList);
             $scope.comingSoonList = comingSoonList;
