@@ -53,9 +53,11 @@ $scope.getCredits = function() {
     var currentMovieID = $routeParams.movieID;
     Movie.getMovies.getCredits({query:currentMovieID}, function(data){
         $scope.people = data;
+
         console.log("HEj");
         console.log($scope.people.crew);
         console.log($scope.people);
+
         $scope.getResults();
         },function(data){
      $scope.status = "There was an error";
