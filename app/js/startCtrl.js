@@ -23,7 +23,10 @@ $scope.setProject = function () {
 }
 
 $scope.updatePop = function() {
-	 $scope.$apply();
+     if(!$scope.$$phase) {
+             $scope.$apply();
+
+    }
 }
 
 angular.element(document).ready(function() {
@@ -101,6 +104,9 @@ angular.element(document).ready(function() {
      $scope.status = "There was an error";
 });
 });
+
+
+
 
 
 
