@@ -122,13 +122,11 @@ movieDataApp.controller('StartCtrl', function ($scope,Movie,$sce) {
             $(".playLineThree").addClass("playLineThree playLineThreePause");
             $(".playArrow").addClass("playArrow playArrowPause");
             $scope.setProject();
-            } else {
+        } else {
             $(".youtubeHolder").removeClass("showYoutube");
         }
         openMovie++;
     }
-
- 
 
 });
 
