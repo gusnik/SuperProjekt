@@ -12,11 +12,9 @@ this.getMovies = $resource(baseUrl, {api_key: '33e53562fbe46873e9379ecef2545dbc'
     getMovie: {url: baseUrl + 'search/movie?query=:query'},
     getMovieID: {url: baseUrl + 'movie/:query'},
     getSearch: {url: baseUrl + 'search/movie?query=:query'},
-    getDatee: {url:baseUrl + 'discover/movie?primary_release_date.gte=:query&primary_release_date.lte=2015-10-16'}
-
+    getDatee: {url:baseUrl + 'discover/movie?primary_release_date.gte=:query&primary_release_date.lte=2015-10-16'},
+    getCredits: {url: baseUrl + ':query/credits'}
 });
-
-
 
 
 this.recentMoviesFunction = function(inputID) {
