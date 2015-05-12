@@ -10,9 +10,6 @@ $scope.getResults = function() {
 	 $scope.$apply();
 }
 
-    $scope.getResults = function() {
-     $scope.$apply();
-    }
 
     $scope.getTop = function() {
         var valu = $("#topBtn").val();
