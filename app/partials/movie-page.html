@@ -101,6 +101,30 @@
 	</div>
 </div>
 	<!-- här vare en divslut </div>, vette fan varför -->
+<div class="sectionHead">SIMILAR MOVIES</div>
+<div id="topTen">
+	<div id="chooseTypeHolder">
+    	<div class="typeObject typeObjectSel">
+        Box Office
+        </div>
+        <div class="typeObject">
+        Top Movies
+        </div>
+    	<div class="typeObject">
+        Top Genre
+        </div>
+    	<div class="typeObject">
+        Top Actor
+        </div>
+    </div>
+</div>
+<div id="similarMovies">
+	<div class="similarMovie" ng-repeat="movie in similiarMovies | limitTo:5">
+    	<a href="#/movie/{{movie.id}}">
+   		<img src ="https://image.tmdb.org/t/p/w300{{ movie.poster_path }}" width="200"/>
+        </a>
+    </div>
+</div>
     
 	<div id = "movieRating"> 	
 		<div id="userRating">

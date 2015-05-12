@@ -20,12 +20,13 @@ var url = 'https://api.themoviedb.org/3/movie/';
         key = '?api_key=33e53562fbe46873e9379ecef2545dbc';
         $.ajax({
             type: 'GET',
-            url: url + userInp + key,
+            url: url + userInp + key + "&append_to_response=similar_movies",
             async: false,
             jsonpCallback: 'testing',
             contentType: 'application/json',
             dataType: 'jsonp',
             success: function(json) {
+				console.log("BJÖRNPENIS");
                 console.log(json);
                 console.log("Hej");
                 $scope.currentMovie = json;
@@ -34,6 +35,7 @@ var url = 'https://api.themoviedb.org/3/movie/';
                 imageLink = "https://image.tmdb.org/t/p/w1920" + json.backdrop_path;
                 $(".contentImage").css("background-image","url(" + imageLink + ")");   
                 $scope.datWidth = json.vote_average*10 + "%";
+				$scope.similiarMovies = json.similar_movies.results;
                 $scope.addToRecent();
 				$scope.getCredits();
                 $scope.getResults();
