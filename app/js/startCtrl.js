@@ -31,26 +31,26 @@ movieDataApp.controller('StartCtrl', function ($scope,Movie,$sce) {
 
     angular.element(document).ready(function() {
         Movie.getMovies.getPopular(function(data){
-        imageLink = "https://image.tmdb.org/t/p/w1920" + data.results[0].backdrop_path;
-        $(".contentImage").css("background-image","url(" + imageLink + ")");
+            imageLink = "https://image.tmdb.org/t/p/w1920" + data.results[0].backdrop_path;
+            $(".contentImage").css("background-image","url(" + imageLink + ")");
 
-        $scope.getMovieByID(data.results[0].id);
-         $scope.status = "Showing " + data + " results";
+            $scope.getMovieByID(data.results[0].id);
+             $scope.status = "Showing " + data + " results";
        },function(data){
-         $scope.status = "There was an error";
+            $scope.status = "There was an error";
     });
     });
 
 
     $scope.getMovieByID = function(userInp) {
         Movie.getMovies.getMovieID({query:userInp}, function(data){
-        $scope.popInfo = data;
-        $scope.datWidth = data.vote_average*10 + "%";
-        $scope.getVideos(data.id);
+            $scope.popInfo = data;
+            $scope.datWidth = data.vote_average*10 + "%";
+            $scope.getVideos(data.id);
 
-         $scope.status = "Showing " + data + " results";
+            $scope.status = "Showing " + data + " results";
        },function(data){
-         $scope.status = "There was an error";
+            $scope.status = "There was an error";
     });
     }
 
