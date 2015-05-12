@@ -4,6 +4,17 @@ var objectList = [];
 var userRatingList = [];
 var recentMovies = [157336, 177572];
 var favouritesList = [157336, 122917, 177572];
+var baseUrl = 'https://api.themoviedb.org/3/';
+
+this.getMovies = $resource(baseUrl, {api_key: '33e53562fbe46873e9379ecef2545dbc'}, {
+    getPopular: {url: baseUrl + 'discover/movie?sort_by=popularity.desc'},
+    getVideos: {url: baseUrl + 'movie/:query/videos'},
+    getMovie: {url: baseUrl + 'search/movie?query=:query'},
+    getMovieID: {url: baseUrl + 'movie/:query'},
+    getSearch: {url: baseUrl + 'search/movie?query=:query'},
+    getDatee: {url:baseUrl + 'discover/movie?primary_release_date.gte=:query&primary_release_date.lte=2015-10-16'}
+
+});
 
 
 this.recentMoviesFunction = function(inputID) {
