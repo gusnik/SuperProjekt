@@ -56,11 +56,11 @@ movieDataApp.controller('StartCtrl', function ($scope,Movie,$sce) {
 
     $scope.getVideos = function(videoId) {
         Movie.getMovies.getVideos({query:videoId}, function(data){
-             $scope.movieID = data.results[0].key;
+            $scope.movieID = data.results[0].key;
             $scope.updatePop();
-            },function(data){
-         $scope.status = "There was an error";
-    });
+        },function(data){
+            $scope.status = "There was an error";
+        });
     }
 
     $scope.getSearchResults = function() {
@@ -68,43 +68,42 @@ movieDataApp.controller('StartCtrl', function ($scope,Movie,$sce) {
         Movie.getMovies.getSearch({query:valu}, function(data){
             $scope.movies = data.results;
             $scope.updatePop();
-            },function(data){
-         $scope.status = "There was an error";
-    });
+        },function(data){
+            $scope.status = "There was an error";
+        });
     }
 
     angular.element(document).ready(function() {
         Movie.getMovies.getPopular(function(data){
             var topTenList = [];
             for(var x=0; x<5;x++) {
-            topTenList.push(data.results[x]);
+                topTenList.push(data.results[x]);
             }
             console.log(topTenList);
             $scope.topTenList = topTenList;
-
-         $scope.status = "Showing " + data + " results";
+            $scope.status = "Showing " + data + " results";
        },function(data){
-         $scope.status = "There was an error";
-    });
+            $scope.status = "There was an error";
+        });
     });
 
 
-angular.element(document).ready(function() {
-    var dating = $scope.date[0];
-    Movie.getMovies.getDatee({query:dating}, function(data){
-        console.log("HJK")
-        console.log(data);
+    angular.element(document).ready(function() {
+        var dating = $scope.date[0];
+        Movie.getMovies.getDatee({query:dating}, function(data){
+            console.log("HJK")
+            console.log(data);
             var comingSoonList = [];
             for(var x=0; x<5;x++) {
-            comingSoonList.push(data.results[x]);
-            }
+                comingSoonList.push(data.results[x]);
+                }
             console.log(comingSoonList);
             $scope.comingSoonList = comingSoonList;
-     $scope.status = "Showing " + data + " results";
-   },function(data){
-     $scope.status = "There was an error";
-});
-});
+            $scope.status = "Showing " + data + " results";
+       },function(data){
+            $scope.status = "There was an error";
+        });
+    });
 
 
     $scope.checkEnter = function(keyEvent) {
