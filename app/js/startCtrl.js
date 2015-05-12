@@ -4,14 +4,14 @@ movieDataApp.controller('StartCtrl', function ($scope,Movie,$sce) {
     angular.element(document).ready(function () {
         var dateList = [];
         for(var x=0; x<7;x++) {
-        var someDate = new Date();
-        var numberOfDaysToAdd = x;
-        someDate.setDate(someDate.getDate() + numberOfDaysToAdd); 
-        var dd = someDate.getDate();
-        var mm = ("0" + (someDate.getMonth() + 1)).slice(-2)
-        var y = someDate.getFullYear();
-        var someFormattedDate = y + '-'+ mm + '-'+ dd;
-        dateList.push(someFormattedDate);
+            var someDate = new Date();
+            var numberOfDaysToAdd = x;
+            someDate.setDate(someDate.getDate() + numberOfDaysToAdd); 
+            var dd = someDate.getDate();
+            var mm = ("0" + (someDate.getMonth() + 1)).slice(-2)
+            var y = someDate.getFullYear();
+            var someFormattedDate = y + '-'+ mm + '-'+ dd;
+            dateList.push(someFormattedDate);
         } 
         $scope.date = dateList;
     });
