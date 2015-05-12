@@ -6,16 +6,17 @@ var userRatingList = [];
 var recentMovies = [];
 var favouritesList = [];
 var baseUrl = 'https://api.themoviedb.org/3/';
+var selectMedia = "movie";
 
 this.getMovies = $resource(baseUrl, {api_key: '33e53562fbe46873e9379ecef2545dbc'}, {
-    getPopular: {url: baseUrl + 'discover/movie?sort_by=popularity.desc'},
-    getVideos: {url: baseUrl + 'movie/:query/videos'},
-    getMovie: {url: baseUrl + 'search/movie?query=:query'},
-    getMovieID: {url: baseUrl + 'movie/:query'},
-    getSearch: {url: baseUrl + 'search/movie?query=:query'},
-    getDatee: {url:baseUrl + 'discover/movie?primary_release_date.gte=:query&primary_release_date.lte=2015-10-16'},
-    getCredits: {url: baseUrl + 'movie/:query/credits'},
-    getSimilar: {url: baseUrl + 'movie/:query?append_to_response=similar_movies'},
+    getPopular: {url: baseUrl + 'discover/'+selectMedia+'?sort_by=popularity.desc'},
+    getVideos: {url: baseUrl + selectMedia+'/:query/videos'},
+    getMovie: {url: baseUrl + 'search/'+selectMedia+'?query=:query'},
+    getMovieID: {url: baseUrl + selectMedia+'/:query'},
+    getSearch: {url: baseUrl + 'search/'+selectMedia+'?query=:query'},
+    getDatee: {url:baseUrl + 'discover/'+selectMedia+'?primary_release_date.gte=:query&primary_release_date.lte=2015-10-16'},
+    getCredits: {url: baseUrl + selectMedia+'/:query/credits'},
+    getSimilar: {url: baseUrl + selectMedia+'/:query?append_to_response=similar_movies'},
 
 
 
