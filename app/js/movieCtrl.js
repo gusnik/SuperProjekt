@@ -19,13 +19,14 @@ $scope.startPartial = function() {
 
 $scope.getMovieByID = function() {
     var currentMovieID = $routeParams.movieID;
-    Movie.getMovies.getMovieID({query:currentMovieID}, function(data){
+    Movie.getMovies.getSimilar({query:currentMovieID}, function(data){
         $scope.currentMovie = data;
         $scope.userRating = Movie.getUserRating($scope.currentMovie.id);
         console.log($scope.userRating);
         imageLink = "https://image.tmdb.org/t/p/w1920" + data.backdrop_path;
         $(".contentImage").css("background-image","url(" + imageLink + ")");   
         $scope.datWidth = data.vote_average*10 + "%";
+        $scope.similiarMovies = data.similar_movies.results;
         $scope.addToRecent();
         $scope.getCredits();
         $scope.getResults();
@@ -52,6 +53,9 @@ $scope.getCredits = function() {
     var currentMovieID = $routeParams.movieID;
     Movie.getMovies.getCredits({query:currentMovieID}, function(data){
         $scope.people = data;
+        console.log("HEj");
+        console.log($scope.people.crew);
+        console.log($scope.people);
         $scope.getResults();
         },function(data){
      $scope.status = "There was an error";

@@ -14,7 +14,11 @@ this.getMovies = $resource(baseUrl, {api_key: '33e53562fbe46873e9379ecef2545dbc'
     getMovieID: {url: baseUrl + 'movie/:query'},
     getSearch: {url: baseUrl + 'search/movie?query=:query'},
     getDatee: {url:baseUrl + 'discover/movie?primary_release_date.gte=:query&primary_release_date.lte=2015-10-16'},
-    getCredits: {url: baseUrl + ':query/credits'}
+    getCredits: {url: baseUrl + 'movie/:query/credits'},
+    getSimilar: {url: baseUrl + 'movie/:query?append_to_response=similar_movies'},
+
+
+
 });
 
 

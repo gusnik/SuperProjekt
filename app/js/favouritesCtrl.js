@@ -8,6 +8,7 @@ $scope.startPartial = function() {
 	$scope.favouritesObjects = Movie.returnFavouritesList();
 		for(i in $scope.favouritesObjects){
 		$scope.getFavouriteseByID($scope.favouritesObjects[i]);
+        console.log($scope.favouritesObjects[i]);
 }
 }
 $scope.getResults = function() {
