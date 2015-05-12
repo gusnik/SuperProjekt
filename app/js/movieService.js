@@ -2,8 +2,9 @@ movieDataApp.factory('Movie',function ($resource) {
 
 var objectList = [];
 var userRatingList = [];
-var recentMovies = [157336, 177572];
-var favouritesList = [157336, 122917, 177572];
+
+var recentMovies = [];
+var favouritesList = [];
 var baseUrl = 'https://api.themoviedb.org/3/';
 
 this.getMovies = $resource(baseUrl, {api_key: '33e53562fbe46873e9379ecef2545dbc'}, {
