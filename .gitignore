@@ -5,3 +5,7 @@ tmp
 .idea
 .DS_Store
 bower_components/
+
+app/js/movieCtrl.js
+
+app/js/movieCtrl.js

@@ -5,95 +5,66 @@ $scope.ratingValues = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
 $scope.currentMovie = '';
 
 $scope.getResults = function() {
-     $scope.$apply();
-}
+     if(!$scope.$$phase) {
+             $scope.$apply();
 
+    }}
 
 $scope.startPartial = function() {
     $scope.getMovieByID();
 }
 
-$scope.getMovieByID = function() {
-currentMovieID = $routeParams.movieID;
-var url = 'https://api.themoviedb.org/3/movie/';
-        userInp = currentMovieID;
-        key = '?api_key=33e53562fbe46873e9379ecef2545dbc';
-        $.ajax({
-            type: 'GET',
-            url: url + userInp + key + "&append_to_response=similar_movies",
-            async: false,
-            jsonpCallback: 'testing',
-            contentType: 'application/json',
-            dataType: 'jsonp',
-            success: function(json) {
-				console.log("BJÖRNPENIS");
-                console.log(json);
-                console.log("Hej");
-                $scope.currentMovie = json;
-                $scope.userRating = Movie.getUserRating($scope.currentMovie.id);
-                console.log($scope.userRating);
-                imageLink = "https://image.tmdb.org/t/p/w1920" + json.backdrop_path;
-                $(".contentImage").css("background-image","url(" + imageLink + ")");   
-                $scope.datWidth = json.vote_average*10 + "%";
-				$scope.similiarMovies = json.similar_movies.results;
-                $scope.addToRecent();
-				$scope.getCredits();
-                $scope.getResults();
-            },
-            error: function(e) {
-                console.log(e.message);
-            }
-    });
 
+
+
+$scope.getMovieByID = function() {
+    var currentMovieID = $routeParams.movieID;
+    Movie.getMovies.getSimilar({query:currentMovieID}, function(data){
+        $scope.currentMovie = data;
+        $scope.userRating = Movie.getUserRating($scope.currentMovie.id);
+        console.log($scope.userRating);
+        imageLink = "https://image.tmdb.org/t/p/w1920" + data.backdrop_path;
+        $(".contentImage").css("background-image","url(" + imageLink + ")");   
+        $scope.datWidth = data.vote_average*10 + "%";
+        $scope.similiarMovies = data.similar_movies.results;
+        $scope.addToRecent();
+        $scope.getCredits();
+        $scope.getResults();
+     $scope.status = "Showing " + data + " results";
+   },function(data){
+     $scope.status = "There was an error";
+});
 }
+
 
 $scope.getSearchResults = function() {
-var valu = $("#searchForm").val();
-var url = 'https://api.themoviedb.org/3/search/movie?query=';
-        userInp = valu;
-        key = '&api_key=33e53562fbe46873e9379ecef2545dbc';
-        $.ajax({
-            type: 'GET',
-            url: url + userInp + key,
-            async: false,
-            jsonpCallback: 'testing',
-            contentType: 'application/json',
-            dataType: 'jsonp',
-            success: function(json) {
-                console.dir(json);
-                $scope.movies = json.results;
-                console.log($scope.movies);
-                $scope.updatePop();
-
-            },
-            error: function(e) {
-                console.log(e.message);
-            }
-    });
-
+    var valu = $("#searchForm").val();
+    Movie.getMovies.getSearch({query:valu}, function(data){
+        $scope.movies = data.results;
+        $scope.updatePop();
+        },function(data){
+     $scope.status = "There was an error";
+});
 }
+
+
 
 $scope.getCredits = function() {
-var url = 'http://api.themoviedb.org/3/movie/';
-        key = '?api_key=33e53562fbe46873e9379ecef2545dbc';
-        $.ajax({
-            type: 'GET',
-            url: url + currentMovieID + "/credits" + key,
-            async: false,
-            jsonpCallback: 'testing',
-            contentType: 'application/json',
-            dataType: 'jsonp',
-            success: function(json) {
-				$scope.people = json;
-                console.log(json);
-				$scope.getResults();
-            },
-            error: function(e) {
-                console.log(e.message);
-            }
-    });
+    var currentMovieID = $routeParams.movieID;
+    Movie.getMovies.getCredits({query:currentMovieID}, function(data){
+        $scope.people = data;
 
+        console.log("HEj");
+        console.log($scope.people.crew);
+        console.log($scope.people);
+
+        $scope.getResults();
+        },function(data){
+     $scope.status = "There was an error";
+});
 }
+
+
 
 $scope.checkEnter = function(keyEvent) {
   //if (keyEvent.which === 13)
@@ -126,8 +97,12 @@ $scope.addToRecent = function() {
 
 
 $scope.updatePop = function() {
-     $scope.$apply();
+     if(!$scope.$$phase) {
+             $scope.$apply();
+
+    }
 }
+
 $scope.startPartial();
 
  
