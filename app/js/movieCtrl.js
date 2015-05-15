@@ -11,11 +11,11 @@ $scope.getResults = function() {
 
 $scope.startPartial = function() {
     $scope.getMovieByID();
-	var oneIsAdd = Movie.returnAddOrRemove();
-	if(oneIsAdd == 1) {
-		$scope.addOrRemove = "add to favourites";
-	} else {
+	var oneIsAdd = Movie.ifInFavouritesList($routeParams.movieID);
+	if(oneIsAdd) {
 		$scope.addOrRemove = "remove from favourites";
+	} else {
+		$scope.addOrRemove = "add to favourites";
 	}
 }
 

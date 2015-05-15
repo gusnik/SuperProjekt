@@ -7,7 +7,6 @@ var recentMovies = [];
 var favouritesList = [];
 var baseUrl = 'https://api.themoviedb.org/3/';
 var selectMedia = "movie";
-var addOrReturn = 1;
 
 this.getMovies = $resource(baseUrl, {api_key: '33e53562fbe46873e9379ecef2545dbc'}, {
     getPopular: {url: baseUrl + 'discover/'+selectMedia+'?sort_by=popularity.desc'},
@@ -76,29 +75,26 @@ else{
 }
 }
 
+
 this.addToFavouritesList = function(inputID) {
-    if (favouritesList.length > 0){
-        for (x in favouritesList) {
-            if (inputID == favouritesList[x]){
-                var index = favouritesList.indexOf(favouritesList[x]);
-                favouritesList.splice(index, 1);
-				addOrReturn = 1;
-				return "add to favourites";
-            } else {
-				favouritesList.push(inputID);
-				addOrReturn = 0;
-				return "remove from favourites";
-			}
-        }
-    } else {
-	    favouritesList.push(inputID);
-		addOrReturn = 0;
+	if(this.ifInFavouritesList(inputID)) {
+		var index = favouritesList.indexOf(favouritesList[x]);
+        favouritesList.splice(index, 1);
+		return "add to favourites";
+	} else {
+		favouritesList.push(inputID);
 		return "remove from favourites";
 	}
+        
 }
 
-this.returnAddOrRemove = function() {
-	return addOrReturn;
+this.ifInFavouritesList = function(inputID) {
+	for (x in favouritesList) {
+    	if (inputID == favouritesList[x]){
+			return true;
+        }
+    }
+	return false;
 }
 
 this.returnFavouritesList = function(){
