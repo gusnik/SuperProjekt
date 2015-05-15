@@ -1,10 +1,32 @@
-movieDataApp.factory('Movie',function ($resource) {
+movieDataApp.factory('Movie',function ($resource, $cookieStore) {
+
+
+ if ($cookieStore.get('recMovies') != undefined){
+   var recentMovies = $cookieStore.get('recMovies');
+  }
+  else{
+      var recentMovies = [];
+  }
+
+
+ if ($cookieStore.get('favMovies') != undefined){
+   var favouritesList = $cookieStore.get('favMovies');
+  }
+  else{
+      var favouritesList = [];
+  }
+
+ if ($cookieStore.get('ratMovies') != undefined){
+   var userRatingList = $cookieStore.get('ratMovies');
+  }
+  else{
+    var userRatingList = [];
+  }
+
+
+
 
 var objectList = [];
-var userRatingList = [];
-
-var recentMovies = [];
-var favouritesList = [];
 var baseUrl = 'https://api.themoviedb.org/3/';
 var selectMedia = "movie";
 
@@ -13,14 +35,14 @@ this.getMovies = $resource(baseUrl, {api_key: '33e53562fbe46873e9379ecef2545dbc'
     getVideos: {url: baseUrl + selectMedia+'/:query/videos'},
     getMovie: {url: baseUrl + 'search/'+selectMedia+'?query=:query'},
     getMovieID: {url: baseUrl + selectMedia+'/:query'},
-    getSearch: {url: baseUrl + 'search/'+selectMedia+'?query=:query'},
+    getSearch: {ulr: baseUrl + 'search/'+selectMedia+'?query=:query'},
     getDatee: {url:baseUrl + 'discover/'+selectMedia+'?primary_release_date.gte=:query&primary_release_date.lte=2015-10-16'},
     getCredits: {url: baseUrl + selectMedia+'/:query/credits'},
     getSimilar: {url: baseUrl + selectMedia+'/:query?append_to_response=similar_movies'},
-
-
-
 });
+
+
+
 
 
 this.recentMoviesFunction = function(inputID) {
@@ -34,8 +56,9 @@ this.recentMoviesFunction = function(inputID) {
         var numberToRemove = 1;
         recentMovies.splice(indexToRemove, numberToRemove);
     }
-	
 	recentMovies.push(inputID);
+    $cookieStore.put('recMovies', recentMovies);
+
 }
 
 this.returnRecentList = function() {
@@ -53,7 +76,8 @@ this.updateUserRating = function(inputID, inputRating){
       }
     }
     userRatingList.push(inputTuple);
-    console.log(userRatingList);
+    $cookieStore.put('ratMovies', userRatingList);
+
 }
 else {
     
@@ -80,10 +104,13 @@ this.addToFavouritesList = function(inputID) {
 	if(this.ifInFavouritesList(inputID)) {
 		var index = favouritesList.indexOf(favouritesList[x]);
         favouritesList.splice(index, 1);
+        $cookieStore.put('favMovies', favouritesList);
 		return "add to favourites";
 	} else {
 		favouritesList.push(inputID);
+        $cookieStore.put('favMovies', favouritesList);
 		return "remove from favourites";
+
 	}
         
 }

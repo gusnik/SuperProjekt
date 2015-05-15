@@ -1,5 +1,5 @@
 
-var movieDataApp = angular.module('movieData', ['ngRoute','ngResource']);
+var movieDataApp = angular.module('movieData', ['ngRoute','ngResource', 'ngCookies']);
 
 movieDataApp.config(['$routeProvider',
   function($routeProvider) {
