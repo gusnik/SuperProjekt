@@ -17,9 +17,9 @@ angular.element(document).ready(function () {
     });
     	
     $scope.setProject = function () {
-    	var id = "https://www.youtube.com/embed/"+ $scope.movieID + "?autoplay=1&controls=0&showinfo=0&rel=0";
+    	idTrailerUrl = "https://www.youtube.com/embed/"+ $scope.movieID + "?autoplay=1&controls=0&showinfo=0&rel=0";
     	//$scope.currentProject = $scope.projects[id];
-    	$scope.currentProjectUrl = $sce.trustAsResourceUrl(id);
+    	$scope.currentProjectUrl = $sce.trustAsResourceUrl(idTrailerUrl);
     }
 
     $scope.updatePop = function() {
@@ -112,14 +112,14 @@ angular.element(document).ready(function () {
         if(openMovie%2==0) {
             //$("#youtubeHolder").animate({opacity: "1"});
             $(".youtubeHolder").addClass("youtubeHolder showYoutube");
-            $(".moviePlayButton").addClass("moviePlayButton moviePlayButtonRotate");
-            $(".playLineOne").addClass("playLineOne playLineOnePause");
-            $(".playLineTwo").addClass("playLineTwo playLineTwoPause");
-            $(".playLineThree").addClass("playLineThree playLineThreePause");
-            $(".playArrow").addClass("playArrow playArrowPause");
+            $(".moviePlayButton").css("background-image", "url(img/close2.png)"); 
+			iframe = document.getElementById("ytplayer");
             $scope.setProject();
         } else {
+			$(".moviePlayButton").css("background-image", "url(img/play.png)");  
             $(".youtubeHolder").removeClass("showYoutube");
+			iframe = document.getElementById("ytplayer");
+            iframe.src=""; //clear
         }
         openMovie++;
     }

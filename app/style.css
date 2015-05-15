@@ -137,6 +137,9 @@ background-color:transparent;
 margin:0 0 0 35px;
 position:relative;
 transition:.5s;
+background-image:url(img/play.png);
+background-size:contain;
+-webkit-filter:invert(100%);
 }
 
 .playArrow {
