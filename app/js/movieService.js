@@ -53,7 +53,6 @@ this.updateUserRating = function(inputID, inputRating){
       }
     }
     userRatingList.push(inputTuple);
-    console.log("HEJ");
     console.log(userRatingList);
 }
 else {
@@ -78,21 +77,24 @@ else{
 
 
 this.addToFavouritesList = function(inputID) {
-    if (favouritesList.length > 0){
-        for (x in favouritesList) {
-            if (inputID == favouritesList[x]){
-                var index = favouritesList.indexOf(favouritesList[x]);
-                favouritesList.splice(index, 1);
-				return "add to favourites";
-            } else {
-				favouritesList.push(inputID);
-				return "remove from favourites";
-			}
-        }
-    } else {
-	    favouritesList.push(inputID);
+	if(this.ifInFavouritesList(inputID)) {
+		var index = favouritesList.indexOf(favouritesList[x]);
+        favouritesList.splice(index, 1);
+		return "add to favourites";
+	} else {
+		favouritesList.push(inputID);
 		return "remove from favourites";
 	}
+        
+}
+
+this.ifInFavouritesList = function(inputID) {
+	for (x in favouritesList) {
+    	if (inputID == favouritesList[x]){
+			return true;
+        }
+    }
+	return false;
 }
 
 this.returnFavouritesList = function(){

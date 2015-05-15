@@ -2,7 +2,6 @@ movieDataApp.controller('MovieCtrl', function ($scope,$routeParams,Movie) {
 
 $scope.ratingValues = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
 $scope.currentMovie = '';
-$scope.addOrRemove = "add to favourites";
 
 $scope.getResults = function() {
      if(!$scope.$$phase) {
@@ -12,6 +11,12 @@ $scope.getResults = function() {
 
 $scope.startPartial = function() {
     $scope.getMovieByID();
+	var oneIsAdd = Movie.ifInFavouritesList($routeParams.movieID);
+	if(oneIsAdd) {
+		$scope.addOrRemove = "remove from favourites";
+	} else {
+		$scope.addOrRemove = "add to favourites";
+	}
 }
 
 $scope.getMovieByID = function() {
