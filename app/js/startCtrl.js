@@ -1,7 +1,7 @@
 movieDataApp.controller('StartCtrl', function ($scope,Movie,$sce) {
 
 
-    angular.element(document).ready(function () {
+angular.element(document).ready(function () {
         var dateList = [];
         for(var x=0; x<7;x++) {
             var someDate = new Date();
