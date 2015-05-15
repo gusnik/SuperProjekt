@@ -64,7 +64,15 @@
                     <img src="../img/heartVit.png" width="12" id="favImg"/>
                     {{addOrRemove}}
                     </div>
-                    <div class="restInfoButton">trailer</div>
+                    <div id="restInfoButtonRating">
+                    	<div id = "movieRating"> 	
+							<div id="userRating">
+                     	 		<select id="selectOpt" ng-init="userRating = ratingValues[0]" ng-model="userRating" ng-options="num for num in ratingValues">
+                      				<option value=''>Rate</option>
+                      			</select>
+							</div> 
+						</div>
+                    </div>
                 </div>
             </div>
             <div id="restInfoDetails">
@@ -113,22 +121,4 @@
         </a>
     </div>
 </div>
-    
-	<div id = "movieRating"> 	
-		<div id="userRating">
-		<select name="userRating" ng-model="userRating" id="selectOpt" >
-			<option ng-repeat="num in ratingValues" value='{{ num }}'>{{ num }}</option> 
-		</select>
-		</div> 
-	</div>
-
-
-
-    
-
-    
-
-
-
-
 <ng-include src="'partials/footer.html'" ng-controller="FootCtrl"></ng-include>

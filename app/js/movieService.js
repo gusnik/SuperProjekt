@@ -100,28 +100,35 @@ else{
 }
 
 
+
 this.addToFavouritesList = function(inputID) {
-	if(this.ifInFavouritesList(inputID)) {
-		var index = favouritesList.indexOf(favouritesList[x]);
+  if(this.ifInFavouritesList(inputID)) {
+    var index = favouritesList.indexOf(favouritesList[x]);
         favouritesList.splice(index, 1);
         $cookieStore.put('favMovies', favouritesList);
-		return "add to favourites";
-	} else {
-		favouritesList.push(inputID);
-        $cookieStore.put('favMovies', favouritesList);
-		return "remove from favourites";
 
-	}
+    return true;
+  } else {
+    favouritesList.push(inputID);
+    $cookieStore.put('favMovies', favouritesList);
+    return false;
+  }
         
 }
 
 this.ifInFavouritesList = function(inputID) {
-	for (x in favouritesList) {
-    	if (inputID == favouritesList[x]){
-			return true;
-        }
-    }
+		for (x in favouritesList) {
+			if (inputID == favouritesList[x]){
+				return true;
+			}
+		}
 	return false;
+}
+
+this.noFavourites = function() {
+	if(favouritesList.length == 0) {
+		return true;
+	}
 }
 
 this.returnFavouritesList = function(){

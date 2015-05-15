@@ -63,8 +63,6 @@ $scope.getCredits = function() {
 });
 }
 
-
-
 $scope.checkEnter = function(keyEvent) {
   //if (keyEvent.which === 13)
     $scope.getSearchResults();
@@ -85,8 +83,11 @@ $scope.$watch('userRating', function(newvalue, oldvalue){
 })
 
 $scope.addToFavourites = function() {
-    $scope.addOrRemove = Movie.addToFavouritesList($scope.currentMovie.id);
-
+    if(Movie.addToFavouritesList($scope.currentMovie.id)) {
+	$scope.addOrRemove = "add to favourites";
+	} else {
+	$scope.addOrRemove = "remove from favourites";
+	}
 }
 
 $scope.addToRecent = function() {
@@ -98,11 +99,9 @@ $scope.addToRecent = function() {
 $scope.updatePop = function() {
      if(!$scope.$$phase) {
              $scope.$apply();
-
     }
 }
 
 $scope.startPartial();
 
- 
 });
