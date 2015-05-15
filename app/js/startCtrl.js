@@ -79,7 +79,6 @@ angular.element(document).ready(function () {
             for(var x=0; x<5;x++) {
                 topTenList.push(data.results[x]);
             }
-            console.log(topTenList);
             $scope.topTenList = topTenList;
             $scope.status = "Showing " + data + " results";
        },function(data){
@@ -91,13 +90,10 @@ angular.element(document).ready(function () {
     angular.element(document).ready(function() {
         var dating = $scope.date[0];
         Movie.getMovies.getDatee({query:dating}, function(data){
-            console.log("HJK")
-            console.log(data);
             var comingSoonList = [];
             for(var x=0; x<5;x++) {
                 comingSoonList.push(data.results[x]);
                 }
-            console.log(comingSoonList);
             $scope.comingSoonList = comingSoonList;
             $scope.status = "Showing " + data + " results";
        },function(data){
