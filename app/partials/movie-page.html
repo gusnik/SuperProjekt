@@ -67,7 +67,9 @@
                     <div id="restInfoButtonRating">
                     	<div id = "movieRating"> 	
 							<div id="userRating">
-                      <select id="selectOpt" ng-init="userRating = ratingValues[0]" ng-model="userRating" ng-options="num for num in ratingValues"></select>
+                     	 		<select id="selectOpt" ng-init="userRating = ratingValues[0]" ng-model="userRating" ng-options="num for num in ratingValues">
+                      				<option value=''>Rate</option>
+                      			</select>
 							</div> 
 						</div>
                     </div>
