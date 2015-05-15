@@ -84,8 +84,6 @@ $scope.addToRecent = function() {
     Movie.recentMoviesFunction($scope.currentMovie.id);
 }
 
-
-
 $scope.updatePop = function() {
      if(!$scope.$$phase) {
              $scope.$apply();

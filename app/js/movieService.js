@@ -17,13 +17,11 @@ movieDataApp.factory('Movie',function ($resource, $cookieStore) {
 
  if ($cookieStore.get('ratMovies') != undefined){
    var userRatingList = $cookieStore.get('ratMovies');
+   console.log(userRatingList);
   }
   else{
     var userRatingList = [];
   }
-
-
-
 
 var objectList = [];
 var baseUrl = 'https://api.themoviedb.org/3/';
@@ -34,7 +32,7 @@ this.getMovies = $resource(baseUrl, {api_key: '33e53562fbe46873e9379ecef2545dbc'
     getVideos: {url: baseUrl + selectMedia+'/:query/videos'},
     getMovie: {url: baseUrl + 'search/'+selectMedia+'?query=:query'},
     getMovieID: {url: baseUrl + selectMedia+'/:query'},
-    getSearch: {ulr: baseUrl + 'search/'+selectMedia+'?query=:query'},
+    getSearch: {url: baseUrl + 'search/'+selectMedia+'?query=:query'},
     getDatee: {url:baseUrl + 'discover/'+selectMedia+'?primary_release_date.gte=:query&primary_release_date.lte=2015-10-16'},
     getCredits: {url: baseUrl + selectMedia+'/:query/credits'},
     getSimilar: {url: baseUrl + selectMedia+'/:query?append_to_response=similar_movies'},
@@ -72,7 +70,6 @@ this.updateUserRating = function(inputID, inputRating){
     }
     userRatingList.push(inputTuple);
     $cookieStore.put('ratMovies', userRatingList);
-
 }
 else {
     
@@ -80,18 +77,14 @@ else {
 }
 
 this.getUserRating = function(inputID) {
-    if (userRatingList.length > 0){
-        for (i in userRatingList) {
-         if (inputID === userRatingList[i].ID) {
-            return userRatingList[i].Rating;
-        } else {
-            return '';
-        }
-    }
-}
-else{
-    return '';
-}
+	if (userRatingList.length > 0){
+		for (i in userRatingList) {
+        	if (inputID == userRatingList[i].ID) {
+            	return userRatingList[i].Rating;
+        	} 
+    	}
+	return '';
+	}
 }
 
 this.addToFavouritesList = function(inputID) {
