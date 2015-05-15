@@ -1,6 +1,5 @@
 movieDataApp.factory('Movie',function ($resource, $cookieStore) {
 
-
  if ($cookieStore.get('recMovies') != undefined){
    var recentMovies = $cookieStore.get('recMovies');
   }
@@ -41,10 +40,6 @@ this.getMovies = $resource(baseUrl, {api_key: '33e53562fbe46873e9379ecef2545dbc'
     getSimilar: {url: baseUrl + selectMedia+'/:query?append_to_response=similar_movies'},
 });
 
-
-
-
-
 this.recentMoviesFunction = function(inputID) {
     for (i in recentMovies) {
         if (inputID === recentMovies[i]) {
@@ -69,10 +64,10 @@ this.returnRecentList = function() {
 this.updateUserRating = function(inputID, inputRating){
     inputTuple = {"ID": inputID, "Rating":inputRating};
     if (inputRating !==  ''){
-    for (i in userRatingList) {
-      if (inputID === userRatingList[i].ID) {
-        var index = userRatingList.indexOf(userRatingList[i]);
-        userRatingList.splice(index, 1);
+    	for (i in userRatingList) {
+      		if (inputID === userRatingList[i].ID) {
+       		var index = userRatingList.indexOf(userRatingList[i]);
+        	userRatingList.splice(index, 1);
       }
     }
     userRatingList.push(inputTuple);
@@ -98,8 +93,6 @@ else{
     return '';
 }
 }
-
-
 
 this.addToFavouritesList = function(inputID) {
   if(this.ifInFavouritesList(inputID)) {

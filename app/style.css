@@ -956,7 +956,7 @@ height:14px;
 float:right;
 background-color:transparent;
 text-align:right;
-overflow:scroll;
+overflow:hidden;
 }
 
 .peoples {
